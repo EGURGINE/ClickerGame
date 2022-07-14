@@ -170,7 +170,11 @@ MonoBehaviour:
   perClickIncrementText: {fileID: 0}
   perSecondIncrementText: {fileID: 0}
   click: {fileID: 0}
-  effort: 100000000
+  fever: 0
+  isFeverTime: 0
+  effort: 9999999
+  effortPerSecondProduct: 0
+  clickPerEffort: 0
 --- !u!1 &1512738884
 GameObject:
   m_ObjectHideFlags: 0
