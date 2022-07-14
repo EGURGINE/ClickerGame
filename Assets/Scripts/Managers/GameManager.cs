@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    private const float FEVER = 1.2f;
     [SerializeField]
-    private Text effortText;
+    private TextMeshProUGUI effortText;
     [SerializeField]
-    private Text perClickIncrementText;
+    private TextMeshProUGUI perClickIncrementText;
     [SerializeField]
-    private Text perSecondIncrementText;
+    private TextMeshProUGUI perSecondIncrementText;
 
+    private float perClickIncrementdefault;
+    
     private float perClickIncrement;
     public float PerClickIncrement
     {
@@ -25,6 +29,7 @@ public class GameManager : MonoBehaviour
             perClickIncrement = value;
         }
     }
+    private float perSecondIncrementdefault;
     private float perSecondIncrement;
     public float PerSecondIncrement
     {
@@ -41,18 +46,52 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Button click;
 
+    [SerializeField]
+    private float fever;
 
+    public bool isFeverTime;
 
     private void Awake()
     {
         instance = this;
     }
+    
     private void Start()
     {
-        //click.onClick.AddListener(() =>
-        //{
-        //    Click();
-        //});
+        perClickIncrement = perClickIncrementdefault;
+        perSecondIncrement = perSecondIncrementdefault;
+
+        click.onClick.AddListener(() =>
+        {
+            Click();
+        });
+    }
+    private void Update()
+    {
+        if (isFeverTime == false)
+        fever += Time.deltaTime;
+
+        if(fever >= 100)
+        {
+            isFeverTime = true;
+        }
+        if(isFeverTime == true)
+        {
+            StartCoroutine(FeverTime());
+        }
+    }
+    private IEnumerator FeverTime()
+    {
+        while(fever > 0)
+        {
+            fever -= Time.deltaTime;
+            isFeverTime = true;
+        }
+        yield return null;
+    }
+    private IEnumerator ChargeFever()
+    {
+        yield return null;
     }
     private void Click()
     {
