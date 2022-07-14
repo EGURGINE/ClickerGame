@@ -30,16 +30,18 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            return perClickIncrement;
+            return perSecondIncrement;
         }
         set
         {
-            perClickIncrement = value;
+            perSecondIncrement = value;
         }
     }
 
     [SerializeField]
     private Button click;
+
+
 
     private void Awake()
     {
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     //노력(인게임 재화)
+    [SerializeField]
     private float effort;
     public float Effort
     {
@@ -86,6 +89,7 @@ public class GameManager : MonoBehaviour
             effort = value;
         }
     }
+    [SerializeField]
     private float effortPerSecondProduct;
     public float EffortPerSecondProduct
     {
@@ -98,7 +102,7 @@ public class GameManager : MonoBehaviour
             effortPerSecondProduct = value;
         }
     }
-
+    [SerializeField]
     private float clickPerEffort;
     public float ClickPerEffort
     {
