@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using System;
 public enum EStockType
 {
-    SMALL,
-    NORMAL,
-    HIGH
+    Class301 = 300000,
+    Class305 = 50000,
+    Mac = 500000,
+    Kineung = 1000,
+    Kiup = 150000
 }
 public class Stock : MonoBehaviour 
 {
@@ -16,7 +19,8 @@ public class Stock : MonoBehaviour
     [SerializeField] private EStockType type;
     [SerializeField] List<GameObject> dot = new List<GameObject>();
     [SerializeField] List<float> posY = new List<float>();
-
+    [SerializeField] private int[] cost;
+    [SerializeField] TextMeshProUGUI[] costTxt;
     private LineRenderer lineRenderer=>GetComponent<LineRenderer>();
     private void Start()
     {
@@ -27,15 +31,22 @@ public class Stock : MonoBehaviour
         }
         switch (type)
         {
-            case EStockType.HIGH:
-                InvokeRepeating("Graph", 0,600f);
-                break;
-            case EStockType.NORMAL:
-                InvokeRepeating("Graph", 0, 350f);
-                break;
-            case EStockType.SMALL:
+            case EStockType.Class301:
                 InvokeRepeating("Graph", 0, 60f);
                 break;
+            case EStockType.Class305:
+                InvokeRepeating("Graph", 0, 300f);
+                break;
+            case EStockType.Mac:
+                InvokeRepeating("Graph", 0, 600f);
+                break;
+            case EStockType.Kineung:
+                InvokeRepeating("Graph", 0, 900f);
+                break;
+            case EStockType.Kiup:
+                InvokeRepeating("Graph", 0, 1800f);
+                break;
+            
         }
     }
 
@@ -51,11 +62,12 @@ public class Stock : MonoBehaviour
             {
                 posY[i] = posY[i+1];
             }
+            cost[i] = (int)posY[i] * (int)type;
+            costTxt[i].text = cost[i].ToString();
         }
         for (int i = 0; i < dot.Count; i++)
         {
             PlayerPrefs.SetFloat("DotPosY" + i, posY[i]); // 나중에 게임 나가기로 이동
-            dot[i].GetComponent<RectTransform>().localPosition = new Vector3(dot[i].GetComponent<RectTransform>().localPosition.x, posY[i], 0);
             dot[i].GetComponent<RectTransform>().localPosition = new Vector3(dot[i].GetComponent<RectTransform>().localPosition.x, posY[i], 0);
             lineRenderer.SetPosition(i, new Vector3(dot[i].transform.position.x, dot[i].transform.position.y, 0));
         }

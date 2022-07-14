@@ -49,10 +49,10 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        click.onClick.AddListener(() =>
-        {
-            Click();
-        });
+        //click.onClick.AddListener(() =>
+        //{
+        //    Click();
+        //});
     }
     private void Click()
     {
