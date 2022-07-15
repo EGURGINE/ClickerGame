@@ -5,10 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+
 public class GameManager : MonoBehaviour
 {
     private const float FEVER = 1.2f;
     #region Texts
+    [Header("TextMeshPro")]
     [SerializeField]
     private TextMeshProUGUI effortText;
     [SerializeField]
@@ -16,12 +18,19 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI perSecondIncrementText;
     #endregion
+    [Space(25f)]
 
+    [Header("UI ø‰º“")]
     [SerializeField]
     private Animation effortAnim;//µ∑ ≥™ø¿¥¬ æ÷¥œ∏ﬁ¿Ãº«
     [SerializeField]
     private Image effortImage;//µ∑
+    [SerializeField]
+    private Button clickArea;
+    [SerializeField]
+    private Slider feverSlider;
 
+    public float feverTime;
 
     private float perClickIncrement;
     public float PerClickIncrement
@@ -49,12 +58,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private Button click;
+
 
     [SerializeField]
     private float fever;
 
+    [HideInInspector]
     public bool isFeverTime;
 
     private void Awake()
@@ -64,43 +73,42 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        click.onClick.AddListener(() =>
+        clickArea.onClick.AddListener(() =>
         {
             Click();
         });
     }
     private void Update()
     {
-        if (isFeverTime == false)
-            fever += Time.deltaTime;
+        if(isFeverTime == true)
+        {
+            FeverTime();
+        }
+    }
+    private void FixedUpdate()
+    {
+        feverSlider.value = fever;
+        if (fever > 99)
+        {
+            isFeverTime = true;
+        }
+        if (fever < 1)
+        {
+            isFeverTime = false;
+        }
 
-        if (fever >= 100)
-        {
-            isFeverTime = true;
-        }
-        if (isFeverTime == true)
-        {
-            StartCoroutine(FeverTime());
-        }
     }
-    private IEnumerator FeverTime()
+    private void FeverTime()
     {
-        while (fever > 0)
-        {
-            fever -= Time.deltaTime;
-            isFeverTime = true;
-        }
-        yield return null;
-    }
-    private IEnumerator ChargeFever()
-    {
-        //««∆€ √Ê¿¸
-        yield return null;
+        fever -= Time.deltaTime;
     }
     private void Click()
     {
+        if (isFeverTime == false)
+        {
+            fever += 1;
+        }
         effort += perClickIncrement;
-        //¿Ã∆Â∆Æ
     }
 
     #region ΩÃ±€≈Ê
