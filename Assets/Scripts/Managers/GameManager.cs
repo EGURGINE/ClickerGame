@@ -8,15 +8,21 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     private const float FEVER = 1.2f;
+    #region Texts
     [SerializeField]
     private TextMeshProUGUI effortText;
     [SerializeField]
     private TextMeshProUGUI perClickIncrementText;
     [SerializeField]
     private TextMeshProUGUI perSecondIncrementText;
+    #endregion
 
-    private float perClickIncrementdefault;
-    
+    [SerializeField]
+    private Animation effortAnim;//돈 나오는 애니메이션
+    [SerializeField]
+    private Image effortImage;//돈
+
+
     private float perClickIncrement;
     public float PerClickIncrement
     {
@@ -29,7 +35,7 @@ public class GameManager : MonoBehaviour
             perClickIncrement = value;
         }
     }
-    private float perSecondIncrementdefault;
+
     private float perSecondIncrement;
     public float PerSecondIncrement
     {
@@ -55,12 +61,9 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
-    
+
     private void Start()
     {
-        perClickIncrement = perClickIncrementdefault;
-        perSecondIncrement = perSecondIncrementdefault;
-
         click.onClick.AddListener(() =>
         {
             Click();
@@ -69,20 +72,20 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (isFeverTime == false)
-        fever += Time.deltaTime;
+            fever += Time.deltaTime;
 
-        if(fever >= 100)
+        if (fever >= 100)
         {
             isFeverTime = true;
         }
-        if(isFeverTime == true)
+        if (isFeverTime == true)
         {
             StartCoroutine(FeverTime());
         }
     }
     private IEnumerator FeverTime()
     {
-        while(fever > 0)
+        while (fever > 0)
         {
             fever -= Time.deltaTime;
             isFeverTime = true;
@@ -91,6 +94,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator ChargeFever()
     {
+        //피퍼 충전
         yield return null;
     }
     private void Click()
@@ -114,6 +118,8 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+
+    #region 노력s
     //노력(인게임 재화)
     [SerializeField]
     private float effort;
@@ -154,4 +160,5 @@ public class GameManager : MonoBehaviour
             clickPerEffort = value;
         }
     }
+    #endregion
 }
