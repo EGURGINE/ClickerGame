@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         #region 방치 보상
         float nowTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
         float OutTime = nowTime - PlayerPrefs.GetFloat("QuitTime");
-        Effort += (effortPerSecondProduct * (int)OutTime) * 0.75f;
+        Effort += (effortPerSecondProduct * (int)OutTime) * 0.2f;
         #endregion
     }
     private void Update()

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e805df42c4e39e42901aeaeb600f6cd, type: 3}
-  m_Name: Student Data 1
+  m_Name: Student Data 4
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  studentType: 0
-  timePerSecondProduct: 10
-  baseCost: 1000
-  increment: 100
+  studentType: 3
+  timePerSecondProduct: 500
+  baseCost: 50000
+  increment: 5000
   cost: 0

@@ -5,7 +5,7 @@ public enum EStudentType
 {
     MainProgramming,
     SubProGramming,
-    TwoDGraPhic,
+    TwoDGraphic,
     ThreeDGraphic,
     Designer
 }

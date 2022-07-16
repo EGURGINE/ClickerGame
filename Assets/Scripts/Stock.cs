@@ -14,11 +14,11 @@ public enum EStockType
 }
 public enum ECycleTime
 {
-    Class301 = 10,
+    Class301 = 900,
     Class305 = 300,
-    Mac = 600,
-    Kineung = 900,
-    Kiup = 1800
+    Mac      = 1800,
+    Kineung  = 10,
+    Kiup     = 600
 }
 public class Stock : MonoBehaviour
 {
@@ -79,7 +79,6 @@ public class Stock : MonoBehaviour
     private void Start()
     {
         #region ¹öÆ°
-        subject.text = type.ToString();
         buyBtn.onClick.AddListener(() =>
         {
             if (GameManager.Instance.Effort > cost[cost.Count - 1])
@@ -88,7 +87,6 @@ public class Stock : MonoBehaviour
                 GameManager.Instance.Effort -= (float)cost[cost.Count - 1];
             }
         });
-
         sellBtn.onClick.AddListener(() =>
         {
             if (have > 0)
@@ -98,6 +96,7 @@ public class Stock : MonoBehaviour
             }
         });
         #endregion
+        subject.text = type.ToString();
         Import();
         Invoke("Graph", delay);
     }
@@ -124,8 +123,8 @@ public class Stock : MonoBehaviour
 
         for (int i = 0; i < dot.Count; i++)
         {
-            posY.Add(PlayerPrefs.GetFloat("DotPosY" + i));
-            cost.Add((int)type - ((int)posY[i] * 10));
+            posY.Add(PlayerPrefs.GetFloat(type + "DotPosY" + i));
+            cost.Add(PlayerPrefs.GetInt(type+"Cost"));
             dot[i].GetComponent<RectTransform>().localPosition += new Vector3(0, posY[i], 0);
         }
     }
@@ -137,25 +136,47 @@ public class Stock : MonoBehaviour
             if (i >= dot.Count - 1) posY[i] = UnityEngine.Random.Range(CMinRange, CMaxRange);
             else posY[i] = posY[i + 1];
 
-            cost[i] = ((int)type - ((int)posY[i] * 10));
-            costTxt[i].text = cost[i].ToString();
+            CostCalculation(i);
         }
         for (int i = 0; i < dot.Count; i++) dot[i].GetComponent<RectTransform>().localPosition =
                 new Vector3(dot[i].GetComponent<RectTransform>().localPosition.x, posY[i], 0);
     }
-
+    private void CostCalculation(int _num)
+    {
+        switch (type)
+        {
+            case EStockType.Class301:
+                cost[_num] = (int)type + ((int)posY[_num] * 30);
+                break;
+            case EStockType.Class305:
+                cost[_num] = (int)type + ((int)posY[_num] * 10);
+                break;
+            case EStockType.Mac:
+                cost[_num] = (int)type + ((int)posY[_num] * 100);
+                break;
+            case EStockType.Kineung:
+                cost[_num] = (int)type + (int)posY[_num];
+                break;
+            case EStockType.Kiup:
+                cost[_num] = (int)type + ((int)posY[_num] * 50);
+                break;
+        }
+        costTxt[_num].text = cost[_num].ToString();
+    }
     private void OnApplicationQuit()
     {
         Save();
     }
     private void Save()
     {
-        for (int i = 0; i < dot.Count; i++) PlayerPrefs.SetFloat("DotPosY" + i, posY[i]);
-
+        for (int i = 0; i < dot.Count; i++)
+        {
+            PlayerPrefs.SetFloat(type + "DotPosY" + i, posY[i]);
+            PlayerPrefs.SetInt(type + "Cost", cost[i]);
+        }
         float time = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
         PlayerPrefs.SetFloat("QuitTime", time);
         PlayerPrefs.SetFloat(type + "CycleDelay", cycleDelay);
-
         PlayerPrefs.SetInt(type + "Have", have);
     }
 }
