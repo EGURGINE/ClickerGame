@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -77,6 +77,12 @@ public class GameManager : MonoBehaviour
         {
             Click();
         });
+
+        #region 방치 보상
+        float nowTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
+        float OutTime = nowTime - PlayerPrefs.GetFloat("QuitTime");
+        Effort += (effortPerSecondProduct * (int)OutTime) * 0.75f;
+        #endregion
     }
     private void Update()
     {
