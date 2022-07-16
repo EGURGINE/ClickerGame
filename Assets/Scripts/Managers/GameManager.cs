@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         if (isFeverTime == false)
             fever += Time.deltaTime;
 
-        if (fever >= 100)
+        if (fever == 100f)
         {
             isFeverTime = true;
         }
@@ -90,11 +90,6 @@ public class GameManager : MonoBehaviour
             fever -= Time.deltaTime;
             isFeverTime = true;
         }
-        yield return null;
-    }
-    private IEnumerator ChargeFever()
-    {
-        //피퍼 충전
         yield return null;
     }
     private void Click()
