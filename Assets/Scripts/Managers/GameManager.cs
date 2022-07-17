@@ -26,13 +26,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Image effortImage;//돈
     [SerializeField]
-    private Button clickArea;
+    private Button clickArea;//클릭범위
     [SerializeField]
-    private Slider feverSlider;
+    private Slider feverSlider;//피버 게이지
 
     public float feverTime;
 
-    private float perClickIncrement;
+    private float perClickIncrement;//클릭당 증가량
     public float PerClickIncrement
     {
         get
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField]
-    private float fever;
+    private float fever;//피버 게이지 값
 
     [HideInInspector]
     public bool isFeverTime;
@@ -86,37 +86,43 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if(isFeverTime == true)
-        {
-            FeverTime();
-        }
+        feverSlider.value = fever;
+        effortText.text = $"{effort}";
+        perClickIncrementText.text = $"{perClickIncrement}";
+        perSecondIncrementText.text = $"{perSecondIncrement}";
     }
     private void FixedUpdate()
     {
-        feverSlider.value = fever;
-        if (fever > 99)
-        {
-            isFeverTime = true;
-        }
-        if (fever < 1)
-        {
-            isFeverTime = false;
-        }
-
+        FeverTime();
     }
     private void FeverTime()
     {
-        fever -= Time.deltaTime;
+        while (fever > 0 && isFeverTime == true)
+        {
+            if (isFeverTime == false && fever <= 0)
+            {
+                break;
+            }
+            else
+            {
+                fever -= Time.deltaTime;
+            }
+        }
     }
     private void Click()
     {
+        Debug.Log(isFeverTime);
+        float perClickdeEffortfault = clickPerEffort;
         if (isFeverTime == false)
         {
+            effort += perClickdeEffortfault;
             fever += 1;
         }
-        effort += perClickIncrement;
+        else if (isFeverTime == true)
+        {
+            effort += (perClickIncrement * FEVER);
+        }
     }
-
     #region 싱글톤
     private static GameManager instance;
 
@@ -148,8 +154,9 @@ public class GameManager : MonoBehaviour
             effort = value;
         }
     }
+
     [SerializeField]
-    private float effortPerSecondProduct;
+    private float effortPerSecondProduct;//초당 노력(재화)
     public float EffortPerSecondProduct
     {
         get
@@ -162,7 +169,7 @@ public class GameManager : MonoBehaviour
         }
     }
     [SerializeField]
-    private float clickPerEffort;
+    private float clickPerEffort;//클릭당 실력(재화)
     public float ClickPerEffort
     {
         get
