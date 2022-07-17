@@ -12,10 +12,20 @@ public class ClassRoom : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI costtxt;
     [SerializeField]
-    
-    public EClassType classType;
-    public float timePerSecondProduct;//초당 생산량
-    public float baseCost;//기본 업글 비용
-    public float increment;//증가량
+    private TextMeshProUGUI className;
+
+    public float cost;
+    private float perSecondIncrement;//초당 실력 증가량
+    public float PerSecondIncrement
+    {
+        get
+        {
+            return perSecondIncrement;
+        }
+        set
+        {
+            perSecondIncrement = value;
+        }
+    }
     
 }
