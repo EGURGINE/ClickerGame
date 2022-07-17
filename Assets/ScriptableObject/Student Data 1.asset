@@ -18,3 +18,5 @@ MonoBehaviour:
   baseCost: 1000
   increment: 100
   cost: 0
+  level: 0
+  studentName: "\uBA54\uC778 \uD504\uB85C\uADF8\uB798\uBA38"
