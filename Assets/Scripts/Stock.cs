@@ -17,7 +17,7 @@ public enum ECycleTime
     Class301 = 900,
     Class305 = 300,
     Mac      = 1800,
-    Kineung  = 10,
+    Kineung  = 60,
     Kiup     = 600
 }
 public class Stock : MonoBehaviour
@@ -40,8 +40,11 @@ public class Stock : MonoBehaviour
 
     [Header("제목 / 버튼")]
     [SerializeField] private TextMeshProUGUI subject;
+    [SerializeField] private TextMeshProUGUI nowPrice;
     [SerializeField] private Button buyBtn;
     [SerializeField] private Button sellBtn;
+    [SerializeField] private Button scaleBtn;
+    private int buyScale = 1;
 
     #region 소지수
     [Header("소지수")]
@@ -81,19 +84,34 @@ public class Stock : MonoBehaviour
         #region 버튼
         buyBtn.onClick.AddListener(() =>
         {
-            if (GameManager.Instance.Effort > cost[cost.Count - 1])
+            if (GameManager.Instance.Effort > cost[cost.Count - 1] * buyScale)
             {
-                Have++;
-                GameManager.Instance.Effort -= (float)cost[cost.Count - 1];
+                Have+= buyScale;
+                GameManager.Instance.Effort -= (float)cost[cost.Count - 1] * buyScale;
             }
         });
         sellBtn.onClick.AddListener(() =>
         {
             if (have > 0)
             {
-                Have--;
-                GameManager.Instance.Effort += (float)cost[cost.Count - 1];
+                Have -= buyScale;
+                GameManager.Instance.Effort += (float)cost[cost.Count - 1]*buyScale;
             }
+        });
+        scaleBtn.onClick.AddListener(() => {
+            switch (buyScale)
+            {
+                // 이미지 스왑
+                case 1: buyScale = 5;
+                    break;
+                case 5: buyScale = 10;
+                    break;
+                case 10: buyScale = 50;
+                    break;
+                case 50: buyScale = 1;
+                    break;
+            }
+            nowPrice.text = (cost[cost.Count - 1] * buyScale).ToString();
         });
         #endregion
         subject.text = type.ToString();
@@ -125,8 +143,10 @@ public class Stock : MonoBehaviour
         {
             posY.Add(PlayerPrefs.GetFloat(type + "DotPosY" + i));
             cost.Add(PlayerPrefs.GetInt(type+"Cost"));
+            costTxt[i].text = cost[i].ToString();
             dot[i].GetComponent<RectTransform>().localPosition += new Vector3(0, posY[i], 0);
         }
+        nowPrice.text = (cost[cost.Count - 1] * buyScale).ToString();
     }
     private void Graph()
     {
@@ -140,6 +160,7 @@ public class Stock : MonoBehaviour
         }
         for (int i = 0; i < dot.Count; i++) dot[i].GetComponent<RectTransform>().localPosition =
                 new Vector3(dot[i].GetComponent<RectTransform>().localPosition.x, posY[i], 0);
+        nowPrice.text = (cost[cost.Count - 1] * buyScale).ToString();
     }
     private void CostCalculation(int _num)
     {
