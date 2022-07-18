@@ -19,9 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI perSecondEffortText;//초당 실력 증가량
     #endregion
-    [Space(25f)]
-
+    #region UI
     [Header("UI 요소")]
+    [Space(25f)]
     [SerializeField]
     private Animation effortAnim;//돈 나오는 애니메이션
     [SerializeField]
@@ -30,9 +30,8 @@ public class GameManager : MonoBehaviour
     private Button clickArea;//클릭범위
     [SerializeField]
     private Slider feverSlider;//피버 게이지
-    [Space(10f)]
-    
-
+    #endregion
+    [Space(15f)]
     #region 노력s
     //노력(인게임 재화)
     [SerializeField]
@@ -77,6 +76,7 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+
     [SerializeField]
     private float fever;//피버 게이지 값
 
@@ -131,9 +131,9 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        effortText.text = $"{effort}노력";
-        perClickEffortText.text = $"{clickPerEffortProduct}";
-        perSecondEffortText.text = $"{effortPerSecondProduct}";
+        effortText.text = GetThousandCommaText((int)Effort) + "노력";
+        perClickEffortText.text = GetThousandCommaText((int)clickPerEffortProduct);
+        perSecondEffortText.text = GetThousandCommaText((int)effortPerSecondProduct);
     }
     private void FixedUpdate()
     {
@@ -158,6 +158,10 @@ public class GameManager : MonoBehaviour
             effort += (clickPerEffortProduct * FEVER);
         }
         //effortAnim.Play();
+    }
+    public string GetThousandCommaText(int data)
+    {
+        return string.Format("{0:#,###}", data);
     }
     #region 싱글톤
     private static GameManager instance;
