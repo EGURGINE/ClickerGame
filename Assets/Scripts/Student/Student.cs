@@ -27,7 +27,7 @@ public class Student : MonoBehaviour
     }
     private void Update()
     {
-        leveltxt.text = studentData.level.ToString();
-        costtxt.text = studentData.cost.ToString();
+        leveltxt.text = $"{studentData.level} Level";
+        costtxt.text = $"{studentData.cost}";
     }
 }
