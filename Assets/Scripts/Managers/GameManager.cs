@@ -76,6 +76,11 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+    #region 셋팅
+    [HideInInspector] public bool isBgm;
+    [HideInInspector] public bool isSfx;
+    [HideInInspector] public bool isEffect;
+    #endregion
 
     [SerializeField]
     private float fever;//피버 게이지 값
