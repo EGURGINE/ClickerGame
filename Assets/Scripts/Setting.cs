@@ -4,11 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Setting : MonoBehaviour
 {
+    [SerializeField] private GameObject SetWnd;
+    [Space(10f)]
+    [Header("¹öÆ°")]
+    [SerializeField] private Button Exit;
     [SerializeField] private Button Bgm;
     [SerializeField] private Button Sfx;
     [SerializeField] private Button Effect;
     void Start()
     {
+        Exit.onClick.AddListener(() =>
+        {
+            SetWnd.SetActive(false);
+        });
         Bgm.onClick.AddListener(() =>
         {
             switch (GameManager.Instance.isBgm)
