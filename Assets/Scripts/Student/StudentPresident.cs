@@ -11,7 +11,7 @@ public class StudentPresident : MonoBehaviour
     private TextMeshProUGUI leveltxt;
     [SerializeField]
     private TextMeshProUGUI costtxt;
-    
+
     [SerializeField]
     [Tooltip("회색 버튼 cost(그냥 cost넣으면됨")]
     private TextMeshProUGUI graybtncosttxt;
@@ -27,7 +27,7 @@ public class StudentPresident : MonoBehaviour
     private Button upGradeBtn;
 
     [SerializeField]
-    private int level;
+    private int level = 1;
     public int Level
     {
         get => level;
@@ -52,25 +52,29 @@ public class StudentPresident : MonoBehaviour
         {
             if (cost <= GameManager.Instance.Effort)
             {
-                graybtn.gameObject.SetActive(false);
                 level += 1;
                 GameManager.Instance.Effort -= cost;
             }
-            else if (cost > GameManager.Instance.Effort)
-            {
-                graybtn.gameObject.SetActive(true);
-            }
+
         });
     }
 
     private void Update()
     {
+        if (cost > GameManager.Instance.Effort)
+        {
+            graybtn.gameObject.SetActive(true);
+        }
+        else if (cost <= GameManager.Instance.Effort)
+        {
+            graybtn.gameObject.SetActive(false);
+        }
         leveltxt.text = $"{level}Level";
         graybtncosttxt.text = $"{GetThousandCommaText((int)cost)}";
         costtxt.text = $"{GetThousandCommaText((int)cost)}";
     }
-    public string GetThousandCommaText(int data) 
-    { 
-        return string.Format("{0:#,###}", data); 
+    public string GetThousandCommaText(int data)
+    {
+        return string.Format("{0:#,###}", data);
     }
 }

@@ -14,7 +14,9 @@ public enum EClassType
 public class ClassData : ScriptableObject
 {
     public EClassType classType;
-    public float timePerSecondProduct;//초당 생산량
-    public float cost;//업글 비용
+    public float timePerSecondProduct;//초당 가격증가량
+    public float buyCost;//구매 비용
+    public float currentCost;//현재 값어치
+    public string className;
 }
 

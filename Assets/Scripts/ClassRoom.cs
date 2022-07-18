@@ -17,34 +17,35 @@ public class ClassRoom : MonoBehaviour
             isBought = value;
             if(isBought == true)
             {
-                isBoughtImg.gameObject.SetActive(true);
+                InvokeRepeating(nameof(TimePerProducting), 1f, 1f);
             }
             else
             {
-                isBoughtImg.gameObject.SetActive(false);
+                classData.currentCost = classData.buyCost;
             }
         }
     }
-
+    private void TimePerProducting()
+    {
+        classData.currentCost += classData.timePerSecondProduct;
+    }
+    [Header("TextMeshPro")]
     [SerializeField]
     private TextMeshProUGUI costtxt;
     [SerializeField]
-    private TextMeshProUGUI className;
+    private TextMeshProUGUI baseCost;
     [SerializeField]
-    private Image isBoughtImg;
+    private TextMeshProUGUI className;
 
-    public float cost;
-    private float perSecondIncrement;//초당 실력 증가량
-    public float PerSecondIncrement
+    private void Start()
     {
-        get
-        {
-            return perSecondIncrement;
-        }
-        set
-        {
-            perSecondIncrement = value;
-        }
+        className.text = $"{classData.className}";
     }
-    
+    private void Update()
+    {
+        costtxt.text = $"{classData.currentCost}";
+    }
+
+
+
 }
