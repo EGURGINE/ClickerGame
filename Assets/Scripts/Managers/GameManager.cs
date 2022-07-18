@@ -93,6 +93,10 @@ public class GameManager : MonoBehaviour
             {
                 isFeverTime = true;
             }
+            else if(fever < 2)
+            {
+                isFeverTime = false;
+            }
             feverSlider.value = fever;
         }
     }
@@ -127,7 +131,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        effortText.text = $"{effort}";
+        effortText.text = $"{effort}³ë·Â";
         perClickEffortText.text = $"{clickPerEffortProduct}";
         perSecondEffortText.text = $"{effortPerSecondProduct}";
     }
@@ -139,7 +143,7 @@ public class GameManager : MonoBehaviour
     {
         if(isFeverTime == true)
         {
-            Fever -= Time.deltaTime;
+            Fever -= Time.deltaTime * 5f;
         }
     }
     private void Click()
@@ -154,7 +158,6 @@ public class GameManager : MonoBehaviour
             effort += (clickPerEffortProduct * FEVER);
         }
         //effortAnim.Play();
-
     }
     #region ½Ì±ÛÅæ
     private static GameManager instance;
@@ -171,5 +174,4 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
-
 }
