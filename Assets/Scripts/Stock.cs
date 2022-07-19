@@ -74,7 +74,6 @@ public class Stock : MonoBehaviour
         {
             cycleDelay = value;
             cycleDelaySlider.value = cycleDelay / ((float)typeCycle);
-
             if (cycleDelay >= (int)typeCycle) Graph();
         }
     }
@@ -122,7 +121,7 @@ public class Stock : MonoBehaviour
     {
         for (int i = 0; i < dot.Count; i++)
         {
-            lineRenderer.SetPosition(i, new Vector3(dot[i].transform.position.x, dot[i].transform.position.y, 0));
+            lineRenderer.SetPosition(i, new Vector3(dot[i].transform.position.x, dot[i].transform.position.y,89.9f));;
         }
 
         CycleDelay += Time.deltaTime;
@@ -142,7 +141,7 @@ public class Stock : MonoBehaviour
         for (int i = 0; i < dot.Count; i++)
         {
             posY.Add(PlayerPrefs.GetFloat(type + "DotPosY" + i));
-            //cost.Add(PlayerPrefs.Getint((int)type+"Cost"));
+            cost.Add(uint.Parse(PlayerPrefs.GetString((int)type + "Cost")));
             costTxt[i].text = cost[i].ToString();
             dot[i].GetComponent<RectTransform>().localPosition += new Vector3(0, posY[i], 0);
         }
@@ -193,7 +192,7 @@ public class Stock : MonoBehaviour
         for (int i = 0; i < dot.Count; i++)
         {
             PlayerPrefs.SetFloat(type + "DotPosY" + i, posY[i]);
-            //PlayerPrefs.SetInt(type + "Cost", cost[i]);
+            PlayerPrefs.SetString(type + "Cost", cost[i].ToString());
         }
         float time = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
         PlayerPrefs.SetFloat("QuitTime", time);
