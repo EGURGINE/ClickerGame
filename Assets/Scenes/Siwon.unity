@@ -300,7 +300,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c38dff9de773d41bf449bd1228a01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  studentDatas: []
+  studentDatas:
+  - {fileID: 11400000, guid: 4d64d8cb8ee387f4ba6c343ffaca903c, type: 2}
+  - {fileID: 11400000, guid: d8cba0a04f5f09b4aa011ccbb3cc8a28, type: 2}
+  - {fileID: 11400000, guid: eaa0ea9762e174340b08cc755bdae1d6, type: 2}
+  - {fileID: 11400000, guid: 2a47e456019ddcf49a2edbe9d3e390f1, type: 2}
+  - {fileID: 11400000, guid: 109fdf6f28de58840bcfaa7adcacfd49, type: 2}
   classDatas: []
   effortText: {fileID: 1398852896}
   perClickEffortText: {fileID: 975910370}

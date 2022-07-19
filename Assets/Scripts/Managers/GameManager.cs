@@ -54,21 +54,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [SerializeField]
     private ulong effortPerSecondProduct;//초당 노력(재화)
     public ulong EffortPerSecondProduct
     {
         get
         {
-            return effortPerSecondProduct;
+            ulong a;
+            a = studentDatas[0].timePerSecondProduct
+                + studentDatas[1].timePerSecondProduct
+                + studentDatas[2].timePerSecondProduct
+                + studentDatas[3].timePerSecondProduct
+                + studentDatas[4].timePerSecondProduct;
+            
+            
+            return effortPerSecondProduct = a;
         }
         set
         {
-            foreach(var datas in studentDatas)
-            {
-                value += datas.timePerSecondProduct;
-            }
-
             effortPerSecondProduct = value;
         }
     }
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
         }
         set
         {
+
             clickPerEffortProduct = value;
 
         }
@@ -139,7 +142,7 @@ public class GameManager : MonoBehaviour
     {
         float nowTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
         float OutTime = nowTime - PlayerPrefs.GetFloat("QuitTime");
-        ulong NeglectCompensation = (EffortPerSecondProduct * (ulong)(OutTime * 0.2));
+        ulong NeglectCompensation = (effortPerSecondProduct * (ulong)(OutTime * 0.2));
         Effort += NeglectCompensation;
         neglectTxt.text = $"너가 없던 사이 {NeglectCompensation} 만큼 노력했다...";
     }
@@ -151,14 +154,16 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        effortText.text = GetThousandCommaText(Effort) + "노력";
+        effortText.text = GetThousandCommaText(effort) + "노력";
         perClickEffortText.text = GetThousandCommaText(clickPerEffortProduct) + "/클릭";
         perSecondEffortText.text = GetThousandCommaText(effortPerSecondProduct) + "/초";
 
     }
-    private void FixedUpdate()
+    private void FixedUpdate()//업데이트에 for문넣기 ㅋ
     {
         FeverTime();
+        
+        
     }
     private void FeverTime()
     {
