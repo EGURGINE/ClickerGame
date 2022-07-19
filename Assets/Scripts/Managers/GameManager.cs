@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     private Button clickArea;//클릭범위
     [SerializeField]
     private Slider feverSlider;//피버 게이지
+    [SerializeField]
+    private TextMeshProUGUI neglectTxt;
     #endregion
     [Space(15f)]
     #region 노력s
@@ -122,11 +124,15 @@ public class GameManager : MonoBehaviour
         });
         
         StartCoroutine(CPerSecondEffortProduct());
-        #region 방치 보상
+       //방치 보상 Neglect();
+    }
+    private void Neglect()
+    {
         float nowTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
         float OutTime = nowTime - PlayerPrefs.GetFloat("QuitTime");
-        Effort += (effortPerSecondProduct * (ulong)(OutTime * 0.2));
-        #endregion
+        ulong NeglectCompensation = (effortPerSecondProduct * (ulong)(OutTime * 0.2));
+        Effort += NeglectCompensation;
+        neglectTxt.text = $"너가 없던 사이 {NeglectCompensation} 만큼 노력했다...";
     }
     private IEnumerator CPerSecondEffortProduct()
     {
