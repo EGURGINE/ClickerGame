@@ -10,13 +10,12 @@ public enum EClassType
     Class305,
     Kiup
 }
-[CreateAssetMenu(fileName = "Class Data", menuName = "Scriptable Object/Class Data",order = int.MaxValue)]
+[CreateAssetMenu(fileName = "Class Data", menuName = "Scriptable Object/Class Data", order = int.MaxValue)]
 public class ClassData : ScriptableObject
 {
     public EClassType classType;
-    public float timePerSecondProduct;//초당 가격증가량
-    public float buyCost;//구매 비용
-    public float currentCost;//현재 값어치
+    public ulong timePerSecondProduct;//초당 가격증가량
+    public ulong buyCost;//구매 비용
+    public ulong currentCost;//현재 값어치
     public string className;
 }
-

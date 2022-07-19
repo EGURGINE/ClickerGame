@@ -35,7 +35,7 @@ public class Stock : MonoBehaviour
     [SerializeField] List<float> posY = new List<float>();
 
     [Header("비용")]
-    [SerializeField] private List<int> cost = new List<int>();
+    [SerializeField] private List<ulong> cost = new List<ulong>();
     [SerializeField] TextMeshProUGUI[] costTxt;
 
     [Header("제목 / 버튼")]
@@ -84,10 +84,10 @@ public class Stock : MonoBehaviour
         #region 버튼
         buyBtn.onClick.AddListener(() =>
         {
-            if (GameManager.Instance.Effort > cost[cost.Count - 1] * buyScale)
+            if (GameManager.Instance.Effort > cost[cost.Count - 1] * (ulong)buyScale)
             {
                 Have+= buyScale;
-                GameManager.Instance.Effort -= (float)cost[cost.Count - 1] * buyScale;
+                GameManager.Instance.Effort -= cost[cost.Count - 1] * (ulong)buyScale;
             }
         });
         sellBtn.onClick.AddListener(() =>
@@ -95,7 +95,7 @@ public class Stock : MonoBehaviour
             if (have > 0)
             {
                 Have -= buyScale;
-                GameManager.Instance.Effort += (float)cost[cost.Count - 1]*buyScale;
+                GameManager.Instance.Effort += cost[cost.Count - 1] * (ulong)buyScale;
             }
         });
         scaleBtn.onClick.AddListener(() => {
@@ -111,7 +111,7 @@ public class Stock : MonoBehaviour
                 case 50: buyScale = 1;
                     break;
             }
-            nowPrice.text = (cost[cost.Count - 1] * buyScale).ToString();
+            nowPrice.text = (cost[cost.Count - 1] * (ulong)buyScale).ToString();
         });
         #endregion
         subject.text = type.ToString();
@@ -142,11 +142,11 @@ public class Stock : MonoBehaviour
         for (int i = 0; i < dot.Count; i++)
         {
             posY.Add(PlayerPrefs.GetFloat(type + "DotPosY" + i));
-            cost.Add(PlayerPrefs.GetInt(type+"Cost"));
+            //cost.Add(PlayerPrefs.Getint((int)type+"Cost"));
             costTxt[i].text = cost[i].ToString();
             dot[i].GetComponent<RectTransform>().localPosition += new Vector3(0, posY[i], 0);
         }
-        nowPrice.text = (cost[cost.Count - 1] * buyScale).ToString();
+        nowPrice.text = (cost[cost.Count - 1] * (ulong)buyScale).ToString();
     }
     private void Graph()
     {
@@ -160,26 +160,26 @@ public class Stock : MonoBehaviour
         }
         for (int i = 0; i < dot.Count; i++) dot[i].GetComponent<RectTransform>().localPosition =
                 new Vector3(dot[i].GetComponent<RectTransform>().localPosition.x, posY[i], 0);
-        nowPrice.text = (cost[cost.Count - 1] * buyScale).ToString();
+        nowPrice.text = (cost[cost.Count - 1] * (ulong)buyScale).ToString();
     }
     private void CostCalculation(int _num)
     {
         switch (type)
         {
             case EStockType.Class301:
-                cost[_num] = (int)type + ((int)posY[_num] * 30);
+                cost[_num] = (ulong)type + ((ulong)posY[_num] * 30);
                 break;
             case EStockType.Class305:
-                cost[_num] = (int)type + ((int)posY[_num] * 10);
+                cost[_num] = (ulong)type + ((ulong)posY[_num] * 10);
                 break;
             case EStockType.Mac:
-                cost[_num] = (int)type + ((int)posY[_num] * 100);
+                cost[_num] = (ulong)type + ((ulong)posY[_num] * 100);
                 break;
             case EStockType.Kineung:
-                cost[_num] = (int)type + (int)posY[_num];
+                cost[_num] = (ulong)type + (ulong)posY[_num];
                 break;
             case EStockType.Kiup:
-                cost[_num] = (int)type + ((int)posY[_num] * 50);
+                cost[_num] = (ulong)type + ((ulong)posY[_num] * 50);
                 break;
         }
         costTxt[_num].text = cost[_num].ToString();
@@ -193,7 +193,7 @@ public class Stock : MonoBehaviour
         for (int i = 0; i < dot.Count; i++)
         {
             PlayerPrefs.SetFloat(type + "DotPosY" + i, posY[i]);
-            PlayerPrefs.SetInt(type + "Cost", cost[i]);
+            //PlayerPrefs.SetInt(type + "Cost", cost[i]);
         }
         float time = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
         PlayerPrefs.SetFloat("QuitTime", time);

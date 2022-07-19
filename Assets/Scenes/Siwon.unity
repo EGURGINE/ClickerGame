@@ -307,9 +307,12 @@ MonoBehaviour:
   effortImage: {fileID: 0}
   clickArea: {fileID: 383793168}
   feverSlider: {fileID: 1112391828}
-  effort: 9999
+  effort: 1000
   effortPerSecondProduct: 10
   clickPerEffortProduct: 10
+  isBgm: 0
+  isSfx: 0
+  isEffect: 0
   fever: 0
   isFeverTime: 0
 --- !u!1 &33645177
@@ -5696,7 +5699,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 68, y: 0}
-  m_SizeDelta: {x: 220, y: 50}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372748145
 MonoBehaviour:
@@ -5752,8 +5755,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -8372,7 +8375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2080265731
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8411,10 +8414,11 @@ MonoBehaviour:
   costtxt: {fileID: 963397831}
   graybtncosttxt: {fileID: 90338143}
   nametxt: {fileID: 521429764}
+  presidentName: "\uD559\uC0DD \uD68C\uC7A5"
   graybtn: {fileID: 1464192812}
   upGradeBtn: {fileID: 1151046782}
-  level: 0
-  cost: 24573
+  level: 1
+  cost: 1
 --- !u!1 &2093216562
 GameObject:
   m_ObjectHideFlags: 0
