@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   studentType: 3
-  timePerSecondProduct: 500
-  baseCost: 50000
+  timePerSecondProduct: 40
+  productIncrement: 10
+  baseCost: 1000
+  cost: 4000
   increment: 5000
-  cost: 0
-  level: 0
+  level: 4
   studentName: "3D \uADF8\uB798\uD53D \uB514\uC790\uC774\uB108"

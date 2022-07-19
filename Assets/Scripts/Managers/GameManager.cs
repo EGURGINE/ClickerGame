@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
 {
     //피버 버프계수
     private const float FEVER = 1.2f;
+    public List<StudentData> studentDatas = new List<StudentData>();
+    public List<ClassData> classDatas = new List<ClassData>();
+    
     #region Texts
     [Header("TextMeshPro")]
     [SerializeField]
@@ -61,6 +64,11 @@ public class GameManager : MonoBehaviour
         }
         set
         {
+            foreach(var datas in studentDatas)
+            {
+                value += datas.timePerSecondProduct;
+            }
+
             effortPerSecondProduct = value;
         }
     }
@@ -75,6 +83,7 @@ public class GameManager : MonoBehaviour
         set
         {
             clickPerEffortProduct = value;
+
         }
     }
     #endregion
@@ -137,14 +146,14 @@ public class GameManager : MonoBehaviour
     private IEnumerator CPerSecondEffortProduct()
     {
         yield return new WaitForSeconds(1f);
-        Effort += effortPerSecondProduct;
+        Effort += EffortPerSecondProduct;
         StartCoroutine(CPerSecondEffortProduct());
     }
     private void Update()
     {
         effortText.text = GetThousandCommaText(Effort) + "노력";
-        perClickEffortText.text = GetThousandCommaText(clickPerEffortProduct);
-        perSecondEffortText.text = GetThousandCommaText(effortPerSecondProduct);
+        perClickEffortText.text = GetThousandCommaText(clickPerEffortProduct) + "/클릭";
+        perSecondEffortText.text = GetThousandCommaText(effortPerSecondProduct) + "/초";
     }
     private void FixedUpdate()
     {
