@@ -1897,11 +1897,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: beabb94d84737e4499745d971d86386e, type: 2}
-  sellCosttxt: {fileID: 0}
-  buyCosttxt: {fileID: 0}
+  sellCosttxt: {fileID: 327486927}
+  buyCosttxt: {fileID: 628241136}
   className: {fileID: 0}
-  buyBtn: {fileID: 0}
-  sellBtn: {fileID: 0}
+  buyBtn: {fileID: 999827715}
+  sellBtn: {fileID: 1908592942}
   buyBar: {fileID: 814021040}
   sellBar: {fileID: 1830283336}
 --- !u!1 &1769765610
@@ -2240,7 +2240,7 @@ GameObject:
   - component: {fileID: 1908592943}
   - component: {fileID: 1908592942}
   m_Layer: 5
-  m_Name: BuyBtn
+  m_Name: SellBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

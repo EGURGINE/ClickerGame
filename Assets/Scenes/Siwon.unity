@@ -316,7 +316,6 @@ MonoBehaviour:
   feverSlider: {fileID: 1112391828}
   neglectTxt: {fileID: 0}
   effort: 1000
-  effortPerSecondProduct: 10
   clickPerEffortProduct: 10
   isBgm: 0
   isSfx: 0
@@ -3617,7 +3616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &792218331
 RectTransform:
   m_ObjectHideFlags: 0
