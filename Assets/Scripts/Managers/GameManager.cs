@@ -35,8 +35,8 @@ public class GameManager : MonoBehaviour
     #region 노력s
     //노력(인게임 재화)
     [SerializeField]
-    private float effort;
-    public float Effort
+    private ulong effort;
+    public ulong Effort
     {
         get
         {
@@ -50,8 +50,8 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField]
-    private float effortPerSecondProduct;//초당 노력(재화)
-    public float EffortPerSecondProduct
+    private ulong effortPerSecondProduct;//초당 노력(재화)
+    public ulong EffortPerSecondProduct
     {
         get
         {
@@ -63,8 +63,8 @@ public class GameManager : MonoBehaviour
         }
     }
     [SerializeField]
-    private float clickPerEffortProduct;//클릭당 실력(재화)
-    public float ClickPerEffortProduct
+    private ulong clickPerEffortProduct;//클릭당 실력(재화)
+    public ulong ClickPerEffortProduct
     {
         get
         {
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
         #region 방치 보상
         float nowTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
         float OutTime = nowTime - PlayerPrefs.GetFloat("QuitTime");
-        Effort += (effortPerSecondProduct * (int)OutTime) * 0.2f;
+        Effort += (effortPerSecondProduct * (ulong)(OutTime * 0.2));
         #endregion
     }
     private IEnumerator CPerSecondEffortProduct()
@@ -136,9 +136,9 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        effortText.text = GetThousandCommaText((int)Effort) + "노력";
-        perClickEffortText.text = GetThousandCommaText((int)clickPerEffortProduct);
-        perSecondEffortText.text = GetThousandCommaText((int)effortPerSecondProduct);
+        effortText.text = GetThousandCommaText(Effort) + "노력";
+        perClickEffortText.text = GetThousandCommaText(clickPerEffortProduct);
+        perSecondEffortText.text = GetThousandCommaText(effortPerSecondProduct);
     }
     private void FixedUpdate()
     {
@@ -160,13 +160,13 @@ public class GameManager : MonoBehaviour
         }
         else if (isFeverTime == true)
         {
-            effort += (clickPerEffortProduct * FEVER);
+            effort += (ulong)(clickPerEffortProduct * FEVER);
         }
         //effortAnim.Play();
     }
-    public string GetThousandCommaText(int data)
+    public string GetThousandCommaText(ulong data)
     {
-        return string.Format("{0:#,###}", data);
+        return string.Format("{0:#,###}", data.ToString());
     }
     #region 싱글톤
     private static GameManager instance;
