@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081181fa8d9ce12479a1b20205ede718, type: 3}
   m_Name: Class Data 5
   m_EditorClassIdentifier: 
-  classType: 0
-  timePerSecondProduct: 0
-  baseCost: 0
-  increment: 0
-  cost: 0
+  classType: 4
+  timePerSecondProduct: 100000
+  buyCost: 1000000000
+  currentCost: 0
+  className: "\uAE30\uC5C5\uBC18"

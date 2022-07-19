@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
     {
         float nowTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
         float OutTime = nowTime - PlayerPrefs.GetFloat("QuitTime");
-        ulong NeglectCompensation = (effortPerSecondProduct * (ulong)(OutTime * 0.2));
+        ulong NeglectCompensation = (EffortPerSecondProduct * (ulong)(OutTime * 0.2));
         Effort += NeglectCompensation;
         neglectTxt.text = $"너가 없던 사이 {NeglectCompensation} 만큼 노력했다...";
     }
@@ -154,6 +154,7 @@ public class GameManager : MonoBehaviour
         effortText.text = GetThousandCommaText(Effort) + "노력";
         perClickEffortText.text = GetThousandCommaText(clickPerEffortProduct) + "/클릭";
         perSecondEffortText.text = GetThousandCommaText(effortPerSecondProduct) + "/초";
+
     }
     private void FixedUpdate()
     {

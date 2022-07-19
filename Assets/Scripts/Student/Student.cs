@@ -53,7 +53,7 @@ public class Student : MonoBehaviour
         {
             grayBtn.gameObject.SetActive(true);
         }
-        studentData.cost = studentData.baseCost * (ulong)studentData.level;
+        studentData.cost = (ulong)studentData.level * (ulong)studentData.increment;
         leveltxt.text = $"{studentData.level} Level";
         costtxt.text = $"{studentData.cost}";
         graycosttxt.text = $"{studentData.cost}";

@@ -2027,11 +2027,11 @@ MonoBehaviour:
   studentData: {fileID: 11400000, guid: 109fdf6f28de58840bcfaa7adcacfd49, type: 2}
   image: {fileID: 1165543493}
   upGradeBtn: {fileID: 1207444355}
-  grayBtn: {fileID: 0}
+  grayBtn: {fileID: 55364371}
   leveltxt: {fileID: 812800946}
   costtxt: {fileID: 600532920}
   nametxt: {fileID: 1287440414}
-  graycosttxt: {fileID: 0}
+  graycosttxt: {fileID: 300251274}
 --- !u!1 &489104942
 GameObject:
   m_ObjectHideFlags: 0
@@ -5695,11 +5695,11 @@ MonoBehaviour:
   studentData: {fileID: 11400000, guid: eaa0ea9762e174340b08cc755bdae1d6, type: 2}
   image: {fileID: 1823645810}
   upGradeBtn: {fileID: 369311343}
-  grayBtn: {fileID: 0}
+  grayBtn: {fileID: 1461612873}
   leveltxt: {fileID: 717001281}
   costtxt: {fileID: 2114786168}
   nametxt: {fileID: 2075593534}
-  graycosttxt: {fileID: 0}
+  graycosttxt: {fileID: 920382681}
 --- !u!1 &1250495028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5752,11 +5752,11 @@ MonoBehaviour:
   studentData: {fileID: 11400000, guid: 2a47e456019ddcf49a2edbe9d3e390f1, type: 2}
   image: {fileID: 1512319399}
   upGradeBtn: {fileID: 1276633034}
-  grayBtn: {fileID: 0}
+  grayBtn: {fileID: 1342359445}
   leveltxt: {fileID: 1257069002}
   costtxt: {fileID: 11098882}
   nametxt: {fileID: 1239315643}
-  graycosttxt: {fileID: 0}
+  graycosttxt: {fileID: 1572434420}
 --- !u!1 &1257069000
 GameObject:
   m_ObjectHideFlags: 0
@@ -8385,11 +8385,11 @@ MonoBehaviour:
   studentData: {fileID: 11400000, guid: d8cba0a04f5f09b4aa011ccbb3cc8a28, type: 2}
   image: {fileID: 364251352}
   upGradeBtn: {fileID: 1550594157}
-  grayBtn: {fileID: 0}
+  grayBtn: {fileID: 1886685737}
   leveltxt: {fileID: 694595664}
   costtxt: {fileID: 1629541707}
   nametxt: {fileID: 446963994}
-  graycosttxt: {fileID: 0}
+  graycosttxt: {fileID: 1011914785}
 --- !u!1 &1685549234
 GameObject:
   m_ObjectHideFlags: 0
