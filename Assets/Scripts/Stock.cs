@@ -80,7 +80,6 @@ public class Stock : MonoBehaviour
     #endregion
     private void Start()
     {
-        Time.timeScale = 100;
         #region ¹öÆ°
         buyBtn.onClick.AddListener(() =>
         {
