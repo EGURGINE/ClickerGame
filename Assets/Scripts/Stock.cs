@@ -80,6 +80,7 @@ public class Stock : MonoBehaviour
     #endregion
     private void Start()
     {
+        Time.timeScale = 100;
         #region ¹öÆ°
         buyBtn.onClick.AddListener(() =>
         {
@@ -140,6 +141,10 @@ public class Stock : MonoBehaviour
 
         for (int i = 0; i < dot.Count; i++)
         {
+            if (PlayerPrefs.GetString((int)type + "Cost") == "")
+            {
+                PlayerPrefs.SetString((int)type + "Cost","0");
+            }
             posY.Add(PlayerPrefs.GetFloat(type + "DotPosY" + i));
             cost.Add(uint.Parse(PlayerPrefs.GetString((int)type + "Cost")));
             costTxt[i].text = cost[i].ToString();
