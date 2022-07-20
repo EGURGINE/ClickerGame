@@ -30,7 +30,7 @@ public class ClassRoom : MonoBehaviour
             PlayerPrefs.SetInt("IsBought" + classData.classType, IsBought ? 1 : 0);
             if (isBought == true)
             {
-                InvokeRepeating(nameof(TimePerProducting), 1f, 1f);
+                InvokeRepeating(nameof(TimePerProducting), 1f, 2f);
                 buyBtn.gameObject.SetActive(false);
                 sellBtn.gameObject.SetActive(true);
             }
@@ -47,6 +47,7 @@ public class ClassRoom : MonoBehaviour
     private void TimePerProducting()
     {
         classData.currentCost += classData.timePerSecondProduct;
+
     }
     [Header("TextMeshPro")]
     [SerializeField]
