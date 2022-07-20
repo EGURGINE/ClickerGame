@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Text;
 
 public class StudentPresident : MonoBehaviour
 {
@@ -76,11 +77,7 @@ public class StudentPresident : MonoBehaviour
             graybtn.gameObject.SetActive(false);
         }
         leveltxt.text = $"{level}Level";
-        graybtncosttxt.text = $"{GetThousandCommaText(cost)}";
-        costtxt.text = $"{GetThousandCommaText(cost)}";
-    }
-    public string GetThousandCommaText(ulong data)
-    {
-        return string.Format("{0:#,###}", data.ToString());
+        graybtncosttxt.text = $"{StringFormat.GetThousandCommaText(cost)}";
+        costtxt.text = $"{StringFormat.GetThousandCommaText(cost)}";
     }
 }

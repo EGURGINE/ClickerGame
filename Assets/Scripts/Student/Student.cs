@@ -55,8 +55,8 @@ public class Student : MonoBehaviour
         }
         studentData.cost = (ulong)studentData.level * (ulong)studentData.increment;
         leveltxt.text = $"{studentData.level} Level";
-        costtxt.text = $"{studentData.cost}";
-        graycosttxt.text = $"{studentData.cost}";
+        costtxt.text = $"{StringFormat.ToString(studentData.cost)}";
+        graycosttxt.text = $"{StringFormat.ToString(studentData.cost)}";
         Increment();
     }
 

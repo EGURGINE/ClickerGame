@@ -3,11 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Text;
 
 public class ClassRoom : MonoBehaviour
 {
     public ClassData classData;
 
+    private void OnEnable()
+    {
+        if (PlayerPrefs.GetInt("IsBought" + classData.classType) == 1)
+        {
+            IsBought = true;
+        }
+        else
+        {
+            IsBought = false;
+        }
+    }
     private bool isBought;
     public bool IsBought
     {
@@ -15,18 +27,20 @@ public class ClassRoom : MonoBehaviour
         set
         {
             isBought = value;
-            if(isBought == true)
+            PlayerPrefs.SetInt("IsBought" + classData.classType, IsBought ? 1 : 0);
+            if (isBought == true)
             {
-                InvokeRepeating(nameof(TimePerProducting), 1f, 2f);
-                buyBar.SetActive(false);
-                sellBar.SetActive(true);
+                InvokeRepeating(nameof(TimePerProducting), 1f, 1f);
+                buyBtn.gameObject.SetActive(false);
+                sellBtn.gameObject.SetActive(true);
             }
-            else
+            else if(isBought == false)
             {
                 CancelInvoke(nameof(TimePerProducting));
+                GameManager.Instance.Effort += classData.currentCost;
                 classData.currentCost = classData.buyCost;
-                sellBar.SetActive(false);
-                buyBar.SetActive(true);
+                sellBtn.gameObject.SetActive(false);
+                buyBtn.gameObject.SetActive(true);
             }
         }
     }
@@ -50,17 +64,10 @@ public class ClassRoom : MonoBehaviour
     [SerializeField]
     private Button sellBtn;//파는 버튼
 
-    [Header("Bars")]
-    [SerializeField]
-    private GameObject buyBar;//사는 버튼이 있는 Bar
-    [SerializeField]
-    private GameObject sellBar;//파는 버튼이 있는 Bar
-    
-
     private void Start()
     {
         className.text = $"{classData.className}";
-        buyCosttxt.text = $"{classData.buyCost}";
+        buyCosttxt.text = $"구매가격: {StringFormat.ToString(classData.buyCost)}";
 
         buyBtn.onClick.AddListener(() =>
         {
@@ -69,10 +76,11 @@ public class ClassRoom : MonoBehaviour
         sellBtn.onClick.AddListener(() =>
         {
             IsBought = false;
+            
         });
     }
     private void Update()
     {
-        sellCosttxt.text = $"{classData.currentCost}";
+        sellCosttxt.text = $"판매 가격: {StringFormat.ToString(classData.currentCost)}";
     }
 }

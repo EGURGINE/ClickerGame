@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System;
+using System.Text;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI perClickEffortText;//클릭당 실력증가량
     [SerializeField]
     private TextMeshProUGUI perSecondEffortText;//초당 실력 증가량
+    [SerializeField]
+    private TextMeshProUGUI neglectTxt;
     #endregion
     #region UI
     [Header("UI 요소")]
@@ -33,8 +36,6 @@ public class GameManager : MonoBehaviour
     private Button clickArea;//클릭범위
     [SerializeField]
     private Slider feverSlider;//피버 게이지
-    [SerializeField]
-    private TextMeshProUGUI neglectTxt;
     #endregion
     [Space(15f)]
     #region 노력s
@@ -59,14 +60,16 @@ public class GameManager : MonoBehaviour
     {
         get
         {
+            #region 애들 다 더하기 ㅋ
             ulong a;
             a = studentDatas[0].timePerSecondProduct
                 + studentDatas[1].timePerSecondProduct
                 + studentDatas[2].timePerSecondProduct
                 + studentDatas[3].timePerSecondProduct
                 + studentDatas[4].timePerSecondProduct;
-            
-            
+            #endregion
+
+
             return effortPerSecondProduct = a;
         }
         set
@@ -154,16 +157,14 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        effortText.text = GetThousandCommaText(effort) + "노력";
-        perClickEffortText.text = GetThousandCommaText(clickPerEffortProduct) + "/클릭";
-        perSecondEffortText.text = GetThousandCommaText(effortPerSecondProduct) + "/초";
+        effortText.text = StringFormat.GetThousandCommaText(effort) + "노력";
+        perClickEffortText.text = StringFormat.GetThousandCommaText(clickPerEffortProduct) + "/클릭";
+        perSecondEffortText.text = StringFormat.GetThousandCommaText(effortPerSecondProduct) + "/초";
 
     }
     private void FixedUpdate()//업데이트에 for문넣기 ㅋ
     {
         FeverTime();
-        
-        
     }
     private void FeverTime()
     {
@@ -184,10 +185,6 @@ public class GameManager : MonoBehaviour
             effort += (ulong)(clickPerEffortProduct * FEVER);
         }
         //effortAnim.Play();
-    }
-    public string GetThousandCommaText(ulong data)
-    {
-        return string.Format("{0:#,###}", data.ToString());
     }
     #region 싱글톤
     private static GameManager instance;

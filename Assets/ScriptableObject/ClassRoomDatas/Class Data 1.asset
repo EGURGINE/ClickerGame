@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classType: 0
   timePerSecondProduct: 100
-  buyCost: 0
-  currentCost: 0
+  buyCost: 10000
+  currentCost: 10000
   className: "\uAE30\uB2A5\uBC18"
