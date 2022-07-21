@@ -40,6 +40,6 @@ public static class StringFormat
     }
     public static string GetThousandCommaText(ulong data)
     {
-        return string.Format("{0:#,###}", StringFormat.ToString(data));
+        return string.Format("{0:#,###}", ToString(data));
     }
 }

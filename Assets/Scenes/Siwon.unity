@@ -1521,7 +1521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: beabb94d84737e4499745d971d86386e, type: 2}
-  classObj: {fileID: 0}
   img: {fileID: 0}
   buyCost: {fileID: 1891766849}
   currentCost: {fileID: 1301537656}
@@ -1576,6 +1575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: bd7d0255e5993174192a4f91a47f8cec, type: 2}
+  isCalling: 0
   sellCosttxt: {fileID: 28372322}
   buyCosttxt: {fileID: 2049679462}
   className: {fileID: 1629212345}
@@ -6826,7 +6826,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 41054ef66f983b84db3c570592b9cd76, type: 2}
-  classObj: {fileID: 0}
   img: {fileID: 0}
   buyCost: {fileID: 1597105075}
   currentCost: {fileID: 125661835}
@@ -7844,6 +7843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 41054ef66f983b84db3c570592b9cd76, type: 2}
+  isCalling: 0
   sellCosttxt: {fileID: 1376594134}
   buyCosttxt: {fileID: 1999902594}
   className: {fileID: 1835894838}
@@ -13398,6 +13398,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1462015341}
+  - component: {fileID: 1462015342}
   m_Layer: 5
   m_Name: Assets
   m_TagString: Untagged
@@ -13423,6 +13424,7 @@ RectTransform:
   - {fileID: 1902916004}
   - {fileID: 1951587849}
   - {fileID: 126351491}
+  - {fileID: 1673480168}
   m_Father: {fileID: 840727376}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13431,6 +13433,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -910}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1462015342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462015340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9dc4cbe448927149939dd823e1d65ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  datas:
+  - {fileID: 11400000, guid: beabb94d84737e4499745d971d86386e, type: 2}
+  - {fileID: 11400000, guid: 1695fa02115dd4845a2ed6d3f1c0ef75, type: 2}
+  - {fileID: 11400000, guid: 41054ef66f983b84db3c570592b9cd76, type: 2}
+  - {fileID: 11400000, guid: 4f063a5a48fb3fd4cb269ddb1b01f2e5, type: 2}
+  - {fileID: 11400000, guid: bd7d0255e5993174192a4f91a47f8cec, type: 2}
+  totalAssets: 0
+  totalAssetsText: {fileID: 1673480169}
 --- !u!1 &1464192810
 GameObject:
   m_ObjectHideFlags: 0
@@ -13955,6 +13977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 1695fa02115dd4845a2ed6d3f1c0ef75, type: 2}
+  isCalling: 0
   sellCosttxt: {fileID: 581458733}
   buyCosttxt: {fileID: 1621571111}
   className: {fileID: 1296730764}
@@ -15075,7 +15098,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 1695fa02115dd4845a2ed6d3f1c0ef75, type: 2}
-  classObj: {fileID: 0}
   img: {fileID: 0}
   buyCost: {fileID: 1154837825}
   currentCost: {fileID: 587903852}
@@ -15904,6 +15926,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653141631}
   m_CullTransparentMesh: 1
+--- !u!1 &1673480167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1673480168}
+  - component: {fileID: 1673480170}
+  - component: {fileID: 1673480169}
+  m_Layer: 5
+  m_Name: TotalAssets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1673480168
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673480167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1462015341}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -537, y: 474}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1673480169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673480167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Assets
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: ee0191d44a0aa694ca307f3cbc4b0564, type: 2}
+  m_sharedMaterial: {fileID: -3368438452100545685, guid: ee0191d44a0aa694ca307f3cbc4b0564, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 30
+  m_fontSizeBase: 30
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1673480170
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673480167}
+  m_CullTransparentMesh: 1
 --- !u!1 &1685549234
 GameObject:
   m_ObjectHideFlags: 0
@@ -16720,6 +16876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 4f063a5a48fb3fd4cb269ddb1b01f2e5, type: 2}
+  isCalling: 0
   sellCosttxt: {fileID: 1767114990}
   buyCosttxt: {fileID: 1000613298}
   className: {fileID: 1887994559}
@@ -17729,8 +17886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04da6fbcf03f4a64d9bbf709cc1a7fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classData: {fileID: 11400000, guid: 41054ef66f983b84db3c570592b9cd76, type: 2}
-  classObj: {fileID: 0}
+  classData: {fileID: 11400000, guid: 4f063a5a48fb3fd4cb269ddb1b01f2e5, type: 2}
   img: {fileID: 0}
   buyCost: {fileID: 1952223408}
   currentCost: {fileID: 446535226}
@@ -18325,6 +18481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: beabb94d84737e4499745d971d86386e, type: 2}
+  isCalling: 0
   sellCosttxt: {fileID: 812512696}
   buyCosttxt: {fileID: 1984184531}
   className: {fileID: 10681248}
@@ -18381,7 +18538,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: bd7d0255e5993174192a4f91a47f8cec, type: 2}
-  classObj: {fileID: 0}
   img: {fileID: 0}
   buyCost: {fileID: 1267742414}
   currentCost: {fileID: 777960464}

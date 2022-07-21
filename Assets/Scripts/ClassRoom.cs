@@ -8,16 +8,16 @@ using System.Text;
 public class ClassRoom : MonoBehaviour
 {
     public ClassData classData;
-
+    public bool isCalling;
     private void OnEnable()
     {
-        if (PlayerPrefs.GetInt("IsBought" + classData.classType) == 1)
+        if (PlayerPrefs.GetInt(nameof(IsBought) + classData.classType) == 1)
         {
-            IsBought = true;
+            isBought = true;
         }
         else
         {
-            IsBought = false;
+            isBought = false;
         }
     }
     private bool isBought;
@@ -27,16 +27,15 @@ public class ClassRoom : MonoBehaviour
         set
         {
             isBought = value;
-            PlayerPrefs.SetInt("IsBought" + classData.classType, IsBought ? 1 : 0);
+            PlayerPrefs.SetInt(nameof(IsBought) + classData.classType, IsBought ? 1 : 0);
             if (isBought == true)
             {
-                InvokeRepeating(nameof(TimePerProducting), 1f, 2f);
+
                 buyBtn.gameObject.SetActive(false);
                 sellBtn.gameObject.SetActive(true);
             }
-            else if(isBought == false)
+            else if (isBought == false)
             {
-                CancelInvoke(nameof(TimePerProducting));
                 GameManager.Instance.Effort += classData.currentCost;
                 classData.currentCost = classData.buyCost;
                 sellBtn.gameObject.SetActive(false);
@@ -47,7 +46,7 @@ public class ClassRoom : MonoBehaviour
     private void TimePerProducting()
     {
         classData.currentCost += classData.timePerSecondProduct;
-
+        isCalling = true;
     }
     [Header("TextMeshPro")]
     [SerializeField]
@@ -73,11 +72,18 @@ public class ClassRoom : MonoBehaviour
         buyBtn.onClick.AddListener(() =>
         {
             IsBought = true;
+            if (isCalling == false)
+            {
+                InvokeRepeating(nameof(TimePerProducting), 1f, 1f);
+            }
         });
         sellBtn.onClick.AddListener(() =>
         {
             IsBought = false;
-            
+            if (isCalling == true)
+            {
+                CancelInvoke(nameof(TimePerProducting));
+            }
         });
     }
     private void Update()
