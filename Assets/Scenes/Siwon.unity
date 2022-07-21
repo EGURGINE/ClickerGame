@@ -516,6 +516,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2a47e456019ddcf49a2edbe9d3e390f1, type: 2}
   - {fileID: 11400000, guid: 109fdf6f28de58840bcfaa7adcacfd49, type: 2}
   classDatas: []
+  classRoom:
+  - {fileID: 1950459843}
+  - {fileID: 1525901968}
+  - {fileID: 890015396}
+  - {fileID: 1808479201}
+  - {fileID: 118618371}
+  classBuy: {fileID: 677742222}
   effortText: {fileID: 1398852896}
   perClickEffortText: {fileID: 975910370}
   perSecondEffortText: {fileID: 535437653}
@@ -1522,6 +1529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: beabb94d84737e4499745d971d86386e, type: 2}
   img: {fileID: 0}
+  classRoom: {fileID: 1950459843}
   buyCost: {fileID: 1891766849}
   currentCost: {fileID: 1301537656}
   className: {fileID: 1601801261}
@@ -6827,6 +6835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 41054ef66f983b84db3c570592b9cd76, type: 2}
   img: {fileID: 0}
+  classRoom: {fileID: 890015396}
   buyCost: {fileID: 1597105075}
   currentCost: {fileID: 125661835}
   className: {fileID: 1124895594}
@@ -13405,7 +13414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1462015341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15099,6 +15108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 1695fa02115dd4845a2ed6d3f1c0ef75, type: 2}
   img: {fileID: 0}
+  classRoom: {fileID: 1525901968}
   buyCost: {fileID: 1154837825}
   currentCost: {fileID: 587903852}
   className: {fileID: 210164341}
@@ -17888,6 +17898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 4f063a5a48fb3fd4cb269ddb1b01f2e5, type: 2}
   img: {fileID: 0}
+  classRoom: {fileID: 1808479201}
   buyCost: {fileID: 1952223408}
   currentCost: {fileID: 446535226}
   className: {fileID: 1582601729}
@@ -18539,6 +18550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: bd7d0255e5993174192a4f91a47f8cec, type: 2}
   img: {fileID: 0}
+  classRoom: {fileID: 118618371}
   buyCost: {fileID: 1267742414}
   currentCost: {fileID: 777960464}
   className: {fileID: 554047784}

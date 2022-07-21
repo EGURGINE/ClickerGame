@@ -13,7 +13,14 @@ public class GameManager : MonoBehaviour
     private const float FEVER = 1.2f;
     public List<StudentData> studentDatas = new List<StudentData>();
     public List<ClassData> classDatas = new List<ClassData>();
-    
+
+    [SerializeField]
+    private GameObject[] classRoom;
+    [SerializeField]
+    private GameObject classBuy;
+
+    private const int CLASSCOUNT = 5;
+
     #region Texts
     [Header("TextMeshPro")]
     [SerializeField]
@@ -51,7 +58,7 @@ public class GameManager : MonoBehaviour
         set
         {
             effort = value;
-            
+
         }
     }
 
@@ -111,11 +118,11 @@ public class GameManager : MonoBehaviour
         set
         {
             fever = value;
-            if(fever >= 99)
+            if (fever >= 99)
             {
                 isFeverTime = true;
             }
-            else if(fever < 2)
+            else if (fever < 2)
             {
                 isFeverTime = false;
             }
@@ -129,17 +136,35 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        //StartCoroutine(CPerSecondProduct());//시간당 교실
+        classBuy.SetActive(true);
+        classBuy.SetActive(false);
     }
 
     private void Start()
     {
+        for (int i = 0; i < 5; i++)
+        {
+
+        }
         clickArea.onClick.AddListener(() =>
         {
             Click();
         });
-        
+
         StartCoroutine(CPerSecondEffortProduct());
-       //방치 보상 Neglect();
+        
+        //방치 보상 Neglect();
+    }
+    private IEnumerator CPerSecondProduct()
+    {
+        yield return new WaitForSeconds(1f);
+        for (int i = 0; i < CLASSCOUNT; i++)
+        {
+            print(classRoom[i].name);
+            classRoom[i].GetComponent<ClassRoom>().TimePerProducting();
+        }
+        StartCoroutine(nameof(CPerSecondProduct));
     }
     private void Neglect()
     {
@@ -168,7 +193,7 @@ public class GameManager : MonoBehaviour
     }
     private void FeverTime()
     {
-        if(isFeverTime == true)
+        if (isFeverTime == true)
         {
             Fever -= Time.deltaTime * 5f;
         }

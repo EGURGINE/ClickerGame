@@ -7,11 +7,13 @@ using TMPro;
 public class Assets : MonoBehaviour
 {
     [SerializeField]
-    private ClassData classData;
-    [SerializeField]
     private Sprite img;
 
-    private ClassRoom classroom;
+    [SerializeField]
+    private GameObject classRoomObj;
+
+    private ClassRoom classRoom;
+
     private Image picture;
 
     #region TextMeshPro
@@ -27,16 +29,15 @@ public class Assets : MonoBehaviour
 
     private void Start()
     {
+        classRoom = classRoomObj.GetComponent<ClassRoom>();
         picture = GetComponent<Image>();
-        buyCost.text = StringFormat.ToString(classData.buyCost);
-        className.text = $"{classData.className}";
+        buyCost.text = StringFormat.ToString(classRoom.classData.buyCost);
+        className.text = $"{classRoom.classData.className}";
         //picture.sprite = img;
-
-        Debug.Assert(classroom == null, "classroom is null");
     }
 
     private void Update()
     {
-        currentCost.text = StringFormat.ToString(classData.currentCost);
+        currentCost.text = StringFormat.ToString(classRoom.classData.currentCost);
     }
 }

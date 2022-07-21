@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Text;
 
 public class ClassRoom : MonoBehaviour
 {
@@ -43,10 +42,14 @@ public class ClassRoom : MonoBehaviour
             }
         }
     }
-    private void TimePerProducting()
+    public void TimePerProducting()
     {
-        classData.currentCost += classData.timePerSecondProduct;
-        isCalling = true;
+        if (isBought == true)
+        {
+            classData.currentCost += classData.timePerSecondProduct;
+            isCalling = true;
+        }
+        print("²ó");
     }
     [Header("TextMeshPro")]
     [SerializeField]
@@ -66,9 +69,13 @@ public class ClassRoom : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(isBought);
         className.text = $"{classData.className}";
         buyCosttxt.text = $"±¸¸Å°¡°Ý: {StringFormat.ToString(classData.buyCost)}";
-
+        if (isBought == true)
+        {
+            InvokeRepeating(nameof(TimePerProducting), 1f, 1f);
+        }
         buyBtn.onClick.AddListener(() =>
         {
             IsBought = true;
