@@ -145,11 +145,11 @@ public class Stock : MonoBehaviour
                 PlayerPrefs.SetString((int)type + "Cost","0");
             }
             posY.Add(PlayerPrefs.GetFloat(type + "DotPosY" + i));
-            cost.Add(uint.Parse(PlayerPrefs.GetString((int)type + "Cost")));
-            costTxt[i].text = cost[i].ToString();
+            cost.Add(uint.Parse(PlayerPrefs.GetString(type + "Cost")));
+            costTxt[i].text = StringFormat.ToString(cost[i]);
             dot[i].GetComponent<RectTransform>().localPosition += new Vector3(0, posY[i], 0);
         }
-        nowPrice.text = (cost[cost.Count - 1] * (ulong)buyScale).ToString();
+        nowPrice.text = StringFormat.ToString((cost[cost.Count - 1] * (ulong)buyScale));
     }
     private void Graph()
     {
@@ -163,7 +163,7 @@ public class Stock : MonoBehaviour
         }
         for (int i = 0; i < dot.Count; i++) dot[i].GetComponent<RectTransform>().localPosition =
                 new Vector3(dot[i].GetComponent<RectTransform>().localPosition.x, posY[i], 0);
-        nowPrice.text = (cost[cost.Count - 1] * (ulong)buyScale).ToString();
+        nowPrice.text = StringFormat.ToString((cost[cost.Count - 1] * (ulong)buyScale));
     }
     private void CostCalculation(int _num)
     {
@@ -185,7 +185,7 @@ public class Stock : MonoBehaviour
                 cost[_num] = (ulong)type + ((ulong)posY[_num] * 50);
                 break;
         }
-        costTxt[_num].text = cost[_num].ToString();
+        costTxt[_num].text = StringFormat.ToString(cost[_num]);
     }
     private void OnApplicationQuit()
     {
