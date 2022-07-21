@@ -9,13 +9,10 @@ public class Assets : MonoBehaviour
     [SerializeField]
     private ClassData classData;
     [SerializeField]
-    private GameObject classObj;
-    [SerializeField]
     private Sprite img;
 
     private ClassRoom classroom;
     private Image picture;
-    
 
     #region TextMeshPro
     [Header("TextMeshPro")]
@@ -31,7 +28,6 @@ public class Assets : MonoBehaviour
     private void Start()
     {
         picture = GetComponent<Image>();
-        //classroom = classData.GetComponent<ClassRoom>();
         buyCost.text = StringFormat.ToString(classData.buyCost);
         className.text = $"{classData.className}";
         //picture.sprite = img;
@@ -43,15 +39,4 @@ public class Assets : MonoBehaviour
     {
         currentCost.text = StringFormat.ToString(classData.currentCost);
     }
-    //private void OnEnable()
-    //{
-    //    if (PlayerPrefs.GetInt("IsBought") == 1)
-    //    {
-    //        classroom.IsBought = true;
-    //    }
-    //    else
-    //    {
-    //        classroom.IsBought = false;
-    //    }
-    //}
 }
