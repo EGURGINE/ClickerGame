@@ -110,7 +110,7 @@ public class Stock : MonoBehaviour
                 case 50: buyScale = 1;
                     break;
             }
-            nowPrice.text = (cost[cost.Count - 1] * (ulong)buyScale).ToString();
+            nowPrice.text = StringFormat.ToString((cost[cost.Count - 1] * (ulong)buyScale));
         });
         #endregion
         subject.text = type.ToString();
