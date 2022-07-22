@@ -137,22 +137,19 @@ public class GameManager : MonoBehaviour
         instance = this;
         //StartCoroutine(CPerSecondProduct());//시간당 교실
         classBuy.SetActive(true);
-        classBuy.SetActive(false);
     }
 
     private void Start()
     {
-        for (int i = 0; i < 5; i++)
-        {
+        classBuy.SetActive(false);
 
-        }
         clickArea.onClick.AddListener(() =>
         {
             Click();
         });
 
         StartCoroutine(CPerSecondEffortProduct());
-        
+        StartCoroutine(CPerSecondProduct());
         //방치 보상 Neglect();
     }
     private IEnumerator CPerSecondProduct()
@@ -160,6 +157,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < CLASSCOUNT; i++)
         {
+            print("aa");
             print(classRoom[i].name);
             classRoom[i].GetComponent<ClassRoom>().TimePerProducting();
         }
@@ -174,7 +172,7 @@ public class GameManager : MonoBehaviour
         neglectTxt.text = $"너가 없던 사이 {NeglectCompensation} 만큼 노력했다...";
     }
     private IEnumerator CPerSecondEffortProduct()
-    {
+    { 
         yield return new WaitForSeconds(1f);
         Effort += EffortPerSecondProduct;
         StartCoroutine(CPerSecondEffortProduct());
