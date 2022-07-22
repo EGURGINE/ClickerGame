@@ -10,5 +10,7 @@ public class StatusManager : Singleton<StatusManager>
 [Serializable]
 public class StatusSave
 {
-    
+    public ulong effort;
+    public int studentPresidentLevel;
+    public int[] studentLevel;
 }
