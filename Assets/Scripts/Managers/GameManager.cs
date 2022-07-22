@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     //피버 버프계수
     private const float FEVER = 1.2f;
     public List<StudentData> studentDatas = new List<StudentData>();
-    public List<ClassData> classDatas = new List<ClassData>();
 
     [SerializeField]
     private GameObject[] classRoom;
