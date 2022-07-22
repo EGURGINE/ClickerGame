@@ -42,7 +42,6 @@ public class ClassRoom : MonoBehaviour
                 classData.currentCost = classData.buyCost;
                 sellBtn.gameObject.SetActive(false);
                 buyBtn.gameObject.SetActive(true);
-
             }
         }
     }
