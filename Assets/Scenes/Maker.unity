@@ -1043,6 +1043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: beabb94d84737e4499745d971d86386e, type: 2}
+  isCalling: 0
   sellCosttxt: {fileID: 556067857}
   buyCosttxt: {fileID: 1048473477}
   className: {fileID: 184186450}
@@ -2414,3 +2415,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097360122}
   m_CullTransparentMesh: 1
+--- !u!1 &2112163915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112163916}
+  - component: {fileID: 2112163917}
+  m_Layer: 0
+  m_Name: StatusManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2112163916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112163915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4263713, y: -33.84329, z: 76.104126}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112163917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112163915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2209462018d20434e8654a9d855d8c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statData:
+    effort: 0
+    studentPresidentLevel: 0
+    studentLevel: 
+    classBoolean: 
+    classCurCost: 
+    dotYPos: []
+    quitTime: 0
+    cycleTime: 0
+    stockHave: 0
+  effort: 0
+  studentPresidentLevel: 0
+  studentLevel: 
+  classBoolean: 
+  classCurCost: 
+  dotYPos: []
+  cycleTime: 0
+  stockHave: 0
+  quitTime: 0
