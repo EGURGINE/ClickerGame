@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     private Button clickArea;//클릭범위
     [SerializeField]
     private Slider feverSlider;//피버 게이지
+    [SerializeField]
+    private TextMeshProUGUI feverText;
     #endregion
     [Space(15f)]
     #region 노력s
@@ -157,8 +159,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < CLASSCOUNT; i++)
         {
-            print("aa");
-            print(classRoom[i].name);
             classRoom[i].GetComponent<ClassRoom>().TimePerProducting();
         }
         StartCoroutine(nameof(CPerSecondProduct));
@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
         Effort += NeglectCompensation;
         neglectTxt.text = $"너가 없던 사이 {NeglectCompensation} 만큼 노력했다...";
     }
-    private IEnumerator CPerSecondEffortProduct()
+    private IEnumerator CPerSecondEffortProduct()//초당 생산
     { 
         yield return new WaitForSeconds(1f);
         Effort += EffortPerSecondProduct;
@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
         perSecondEffortText.text = StringFormat.GetThousandCommaText(effortPerSecondProduct) + "/초";
 
     }
-    private void FixedUpdate()//업데이트에 for문넣기 ㅋ
+    private void FixedUpdate()
     {
         FeverTime();
     }
@@ -193,6 +193,11 @@ public class GameManager : MonoBehaviour
         if (isFeverTime == true)
         {
             Fever -= Time.deltaTime * 5f;
+            feverText.gameObject.SetActive(true);
+        }
+        else
+        {
+            feverText.gameObject.SetActive(false);
         }
     }
     private void Click()
@@ -201,6 +206,7 @@ public class GameManager : MonoBehaviour
         {
             effort += clickPerEffortProduct;
             Fever += 1;
+            
         }
         else if (isFeverTime == true)
         {
