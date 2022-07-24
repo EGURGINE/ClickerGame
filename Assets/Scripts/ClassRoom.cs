@@ -13,10 +13,14 @@ public class ClassRoom : MonoBehaviour
         if (PlayerPrefs.GetInt(nameof(IsBought) + classData.classType) == 1)
         {
             isBought = true;
+            buyBtn.gameObject.SetActive(false);
+            sellBtn.gameObject.SetActive(true);
         }
         else
         {
             isBought = false;
+            sellBtn.gameObject.SetActive(false);
+            buyBtn.gameObject.SetActive(true);
         }
     }
     private bool isBought;
@@ -30,15 +34,13 @@ public class ClassRoom : MonoBehaviour
             if (isBought == true)
             {
 
-                buyBtn.gameObject.SetActive(false);
-                sellBtn.gameObject.SetActive(true);
+                
             }
             else if (isBought == false)
             {
                 GameManager.Instance.Effort += classData.currentCost;
                 classData.currentCost = classData.buyCost;
-                sellBtn.gameObject.SetActive(false);
-                buyBtn.gameObject.SetActive(true);
+                
             }
         }
     }
