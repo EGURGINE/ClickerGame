@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.IO;
 
 public class StatusManager : Singleton<StatusManager>
 {
-    GameManager gameManager;
+    private GameManager gameManager;
     private const string SAVESTR = "SaveData";
     private const string LOADSTR = "LoadData";
 
@@ -30,7 +31,27 @@ public class StatusManager : Singleton<StatusManager>
     }
     public void LoadData()
     {
-        
+        gameManager.Effort = statData.effort;
+        president.Level = statData.studentPresidentLevel;
+        for (int i = 0; i < studentdata.Length; i++)
+        {
+            studentdata[i].studentData.level = statData.studentLevel[i];
+        }
+        for (int i = 0; i < classroom.Length; i++)
+        {
+            classroom[i].IsBought = statData.classBoolean[i];
+            classroom[i].classData.currentCost = statData.classCurCost[i];
+        }
+        for (int i = 0; i < stock.Length; i++)
+        {
+            for (int j = 0; j < STOCKYPOSCOUNT; j++)
+            {
+                stock[i].posY[j] = statData.dotYPos[i, j];
+            }
+            stock[i].quitTime = statData.quitTime[i];
+            stock[i].CycleDelay = statData.cycleTime[i];
+            stock[i].Have = statData.stockHave[i];
+        }
     }
     public void SaveData()
     {
@@ -49,21 +70,39 @@ public class StatusManager : Singleton<StatusManager>
         {
             for (int j = 0; j < STOCKYPOSCOUNT; j++)
             {
-                statData.dotYPos[i,j] = stock[i].posY[j];
+                statData.dotYPos[i, j] = stock[i].posY[j];
             }
             statData.quitTime[i] = stock[i].quitTime;
             statData.cycleTime[i] = stock[i].CycleDelay;
             statData.stockHave[i] = stock[i].Have;
         }
-        
     }
     public void SetDataToJson()
     {
-        string str = JsonUtility.ToJson(statData,true);
-        PlayerPrefs.SetString(SAVESTR, str);
+        SaveData();
+        string str = JsonUtility.ToJson(statData);
+        PlayerPrefs.SetString("Datas", str);
+#if UNITY_EDITOR
+        //Application.persistentDataPath;
+        File.WriteAllText($"{Application.dataPath}/Json.txt", str);
+#else
+        File.WriteAllText($"{Application.persistentDataPath}/MobileJson.txt", str);
+#endif
+
     }
+        //Application.persistentDataPath;
     public void GetDataToJson()
     {
+        LoadData();
+#if !UNITY_EDITOR
+        string str = File.ReadAllText($"{Application.dataPath}/Json.txt");
+        JsonUtility.FromJson<StatusSave>(str);
+        
+#else
+        string str = File.ReadAllText($"{Application.persistentDataPath}/MobileJson.txt");
+        JsonUtility.FromJson<StatusSave>(str);
+
+#endif
 
     }
 }
