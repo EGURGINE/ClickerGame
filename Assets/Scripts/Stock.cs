@@ -26,6 +26,8 @@ public class Stock : MonoBehaviour
 {
     private const float CMaxRange = 200;
     private const float CMinRange = -200;
+
+    public const float POSYCOUNT = 5f;//Y좌표 개수
     private LineRenderer lineRenderer => GetComponent<LineRenderer>();
 
     [Header("타입")]
@@ -34,7 +36,7 @@ public class Stock : MonoBehaviour
 
     [Header("점")]
     [SerializeField] List<GameObject> dot = new List<GameObject>();
-    [SerializeField] List<float> posY = new List<float>();
+    public List<float> posY = new List<float>();
 
     [Header("비용")]
     [SerializeField] private List<ulong> cost = new List<ulong>();
@@ -47,11 +49,13 @@ public class Stock : MonoBehaviour
     [SerializeField] private Button sellBtn;
     [SerializeField] private Button scaleBtn;
     private int buyScale = 1;
+
+    public float quitTime;
     #region 소지수
     [Header("소지수")]
     [SerializeField] TextMeshProUGUI haveTxt;
     [SerializeField] private int have;
-    private int Have
+    public int Have
     {
         get { return have; }
         set
@@ -67,7 +71,7 @@ public class Stock : MonoBehaviour
     private float delay;
 
     private float cycleDelay;
-    private float CycleDelay
+    public float CycleDelay
     {
         get { return cycleDelay; }
         set
@@ -202,8 +206,8 @@ public class Stock : MonoBehaviour
             PlayerPrefs.SetFloat(type + "DotPosY" + i, posY[i]);
             PlayerPrefs.SetString(type + "Cost", cost[i].ToString());
         }
-        float time = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
-        PlayerPrefs.SetFloat("QuitTime", time);
+        float quitTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
+        PlayerPrefs.SetFloat("QuitTime", quitTime);
         PlayerPrefs.SetFloat(type + "CycleDelay", cycleDelay);
         PlayerPrefs.SetInt(type + "Have", have);
     }

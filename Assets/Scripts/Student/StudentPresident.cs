@@ -7,6 +7,7 @@ using System.Text;
 
 public class StudentPresident : MonoBehaviour
 {
+    #region Text
     [Header("TextMeshPro")]
     [SerializeField]
     private TextMeshProUGUI leveltxt;
@@ -29,7 +30,7 @@ public class StudentPresident : MonoBehaviour
     private Button graybtn;
     [SerializeField]
     private Button upGradeBtn;
-
+    #endregion
     [SerializeField]
     private int level = 1;
     public int Level
