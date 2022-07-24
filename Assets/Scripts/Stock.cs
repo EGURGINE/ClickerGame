@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using System.Linq;
+using Random = UnityEngine.Random;
 public enum EStockType
 {
     Class301 = 300000,
@@ -16,9 +18,9 @@ public enum ECycleTime
 {
     Class301 = 900,
     Class305 = 300,
-    Mac      = 1800,
-    Kineung  = 60,
-    Kiup     = 600
+    Mac = 1800,
+    Kineung = 60,
+    Kiup = 600
 }
 public class Stock : MonoBehaviour
 {
@@ -83,10 +85,10 @@ public class Stock : MonoBehaviour
         #region 버튼
         buyBtn.onClick.AddListener(() =>
         {
-            if (GameManager.Instance.Effort > cost[cost.Count - 1] * (ulong)buyScale)
+            if (GameManager.Instance.Effort > cost.Last() * (ulong)buyScale)
             {
-                Have+= buyScale;
-                GameManager.Instance.Effort -= cost[cost.Count - 1] * (ulong)buyScale;
+                Have += buyScale;
+                GameManager.Instance.Effort -= cost.Last() * (ulong)buyScale;
             }
         });
         sellBtn.onClick.AddListener(() =>
@@ -94,23 +96,28 @@ public class Stock : MonoBehaviour
             if (have > 0)
             {
                 Have -= buyScale;
-                GameManager.Instance.Effort += cost[cost.Count - 1] * (ulong)buyScale;
+                GameManager.Instance.Effort += cost.Last() * (ulong)buyScale;
             }
         });
-        scaleBtn.onClick.AddListener(() => {
+        scaleBtn.onClick.AddListener(() =>
+        {
             switch (buyScale)
             {
                 // 이미지 스왑
-                case 1: buyScale = 5;
+                case 1:
+                    buyScale = 5;
                     break;
-                case 5: buyScale = 10;
+                case 5:
+                    buyScale = 10;
                     break;
-                case 10: buyScale = 50;
+                case 10:
+                    buyScale = 50;
                     break;
-                case 50: buyScale = 1;
+                case 50:
+                    buyScale = 1;
                     break;
             }
-            nowPrice.text = StringFormat.ToString((cost[cost.Count - 1] * (ulong)buyScale));
+            nowPrice.text = StringFormat.ToString((cost.Last() * (ulong)buyScale));
         });
         #endregion
         subject.text = type.ToString();
@@ -121,7 +128,7 @@ public class Stock : MonoBehaviour
     {
         for (int i = 0; i < dot.Count; i++)
         {
-            lineRenderer.SetPosition(i, new Vector3(dot[i].transform.position.x, dot[i].transform.position.y,89.9f));;
+            lineRenderer.SetPosition(i, new Vector3(dot[i].transform.position.x, dot[i].transform.position.y, 89.9f)); ;
         }
 
         CycleDelay += Time.deltaTime;
@@ -142,7 +149,7 @@ public class Stock : MonoBehaviour
         {
             if (PlayerPrefs.GetString((int)type + "Cost") == "")
             {
-                PlayerPrefs.SetString((int)type + "Cost","0");
+                PlayerPrefs.SetString((int)type + "Cost", "0");
             }
             posY.Add(PlayerPrefs.GetFloat(type + "DotPosY" + i));
             cost.Add(uint.Parse(PlayerPrefs.GetString(type + "Cost")));
@@ -156,7 +163,7 @@ public class Stock : MonoBehaviour
         CycleDelay = 0;
         for (int i = 0; i < dot.Count; i++)
         {
-            if (i >= dot.Count - 1) posY[i] = UnityEngine.Random.Range(CMinRange, CMaxRange);
+            if (i >= dot.Count - 1) posY[i] = Random.Range(CMinRange, CMaxRange);
             else posY[i] = posY[i + 1];
 
             CostCalculation(i);
