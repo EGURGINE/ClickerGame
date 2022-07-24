@@ -23,8 +23,8 @@ public class JsonTest : MonoBehaviour
 
         File.WriteAllText($"{Application.dataPath}/Json.txt", JsonUtility.ToJson(new student
         {
-            name = "개새",
-            age = 18,
+            name = "권준호개새",
+            age = 38,
         }));
         //Application.persistentDataPath;
     }

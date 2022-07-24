@@ -5,8 +5,8 @@ using System;
 
 public class StatusManager : Singleton<StatusManager>
 {
-    public StudentData[] studentdata;
-    public ClassRoom[] classroom;
+    public StudentData[] studentdata;//scriptableObject
+    public ClassRoom[] classroom;//scriptableObject
 
     [HideInInspector]
     public StatusSave statData = new StatusSave();
