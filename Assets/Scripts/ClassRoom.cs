@@ -33,14 +33,15 @@ public class ClassRoom : MonoBehaviour
             PlayerPrefs.SetInt(nameof(IsBought) + classData.classType, IsBought ? 1 : 0);
             if (isBought == true)
             {
-
-                
+                buyBtn.gameObject.SetActive(false);
+                sellBtn.gameObject.SetActive(true);
             }
             else if (isBought == false)
             {
                 GameManager.Instance.Effort += classData.currentCost;
                 classData.currentCost = classData.buyCost;
-                
+                sellBtn.gameObject.SetActive(false);
+                buyBtn.gameObject.SetActive(true);
             }
         }
     }
@@ -51,7 +52,6 @@ public class ClassRoom : MonoBehaviour
             classData.currentCost += classData.timePerSecondProduct;
             isCalling = true;
         }
-        print("²ó");
     }
     [Header("TextMeshPro")]
     [SerializeField]
@@ -74,17 +74,17 @@ public class ClassRoom : MonoBehaviour
         Debug.Log(isBought);
         className.text = $"{classData.className}";
         buyCosttxt.text = $"±¸¸Å°¡°Ý: {StringFormat.ToString(classData.buyCost)}";
-        if (isBought == true)
-        {
-            InvokeRepeating(nameof(TimePerProducting), 1f, 1f);
-        }
+        //if (isBought == true)
+        //{
+        //    InvokeRepeating(nameof(TimePerProducting), 1f, 1f);
+        //}
         buyBtn.onClick.AddListener(() =>
         {
             IsBought = true;
-            if (isCalling == false)
-            {
-                InvokeRepeating(nameof(TimePerProducting), 1f, 1f);
-            }
+            //if (isCalling == false)
+            //{
+            //    InvokeRepeating(nameof(TimePerProducting), 1f, 1f);
+            //}
         });
         sellBtn.onClick.AddListener(() =>
         {

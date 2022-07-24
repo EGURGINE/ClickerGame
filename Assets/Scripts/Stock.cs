@@ -47,7 +47,6 @@ public class Stock : MonoBehaviour
     [SerializeField] private Button sellBtn;
     [SerializeField] private Button scaleBtn;
     private int buyScale = 1;
-
     #region 소지수
     [Header("소지수")]
     [SerializeField] TextMeshProUGUI haveTxt;
@@ -62,7 +61,6 @@ public class Stock : MonoBehaviour
         }
     }
     #endregion
-
     #region 주기
     [Header("주기")]
     [SerializeField] private Slider cycleDelaySlider;
@@ -132,7 +130,6 @@ public class Stock : MonoBehaviour
         }
 
         CycleDelay += Time.deltaTime;
-
     }
     private void Import()
     {
