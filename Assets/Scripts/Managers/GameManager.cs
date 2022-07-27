@@ -179,10 +179,13 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        TextUpDate();
+    }
+    private void TextUpDate()
+    {
         effortText.text = StringFormat.GetThousandCommaText(effort) + "노력";
         perClickEffortText.text = StringFormat.GetThousandCommaText(clickPerEffortProduct) + "/클릭";
         perSecondEffortText.text = StringFormat.GetThousandCommaText(effortPerSecondProduct) + "/초";
-
     }
     private void FixedUpdate()
     {

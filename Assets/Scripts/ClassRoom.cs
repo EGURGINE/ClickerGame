@@ -21,6 +21,7 @@ public class ClassRoom : MonoBehaviour
             isBought = false;
             sellBtn.gameObject.SetActive(false);
             buyBtn.gameObject.SetActive(true);
+            classData.currentCost = classData.buyCost;
         }
     }
     private bool isBought;
