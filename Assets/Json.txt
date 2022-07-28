@@ -1,0 +1,1 @@
+{"effort":1111330640,"studentPresidentLevel":0,"studentLevel":[0,0,0,0,0],"classBoolean":[false,false,false,false,false],"classCurCost":[0,0,0,0,0],"quitTime":[0.0,0.0,0.0,0.0,0.0],"cycleTime":[0.437416672706604,174.78102111816407,174.78102111816407,174.78102111816407,174.78102111816407],"stockHave":[0,0,0,0,0]}

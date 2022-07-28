@@ -7,12 +7,17 @@ public class Setting : MonoBehaviour
     [SerializeField] private GameObject SetWnd;
     [Space(10f)]
     [Header("¹öÆ°")]
+    [SerializeField] private Button SettingOnBtn;
     [SerializeField] private Button Exit;
     [SerializeField] private Button Bgm;
     [SerializeField] private Button Sfx;
     [SerializeField] private Button Effect;
     void Start()
     {
+        SettingOnBtn.onClick.AddListener(() =>
+        {
+            SetWnd.SetActive(true);
+        });
         Exit.onClick.AddListener(() =>
         {
             SetWnd.SetActive(false);
