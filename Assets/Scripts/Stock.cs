@@ -37,7 +37,7 @@ public class Stock : MonoBehaviour
     [Header("Á¡")]
     [SerializeField] List<GameObject> dot = new List<GameObject>();
 
-    [HideInInspector] public List<float> posY = new List<float>();
+    [HideInInspector] public List<float> posY = new List<float>(6);
 
     [Header("ºñ¿ë")]
     [SerializeField] private List<ulong> cost = new List<ulong>();
