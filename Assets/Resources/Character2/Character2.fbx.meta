@@ -10,6 +10,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 9f56d9d9046c294428eb3a4537594e42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cara
+    second: {fileID: 2100000, guid: bf8a5a8ac29d10d4fb97c464b0c8527f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Hair
     second: {fileID: 2100000, guid: 1499b5984d82f8649a0cde9eb1c14f74, type: 2}
   - first:
@@ -17,6 +27,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Scirt
     second: {fileID: 2100000, guid: 7849a5ea0e66edd4d90fc039a3e18834, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirts
+    second: {fileID: 2100000, guid: 2f41a7422355abd479bf6dc0979d5977, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoes
+    second: {fileID: 2100000, guid: 8205e43fc8cab1348b7360bddd72d979, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
