@@ -48,6 +48,7 @@ public class Stock : MonoBehaviour
     [SerializeField] private Button buyBtn;
     [SerializeField] private Button sellBtn;
     [SerializeField] private Button scaleBtn;
+    [SerializeField] private Sprite[] scaleImage;
     private int buyScale = 1;
 
     public float quitTime;
@@ -107,16 +108,22 @@ public class Stock : MonoBehaviour
             {
                 // 이미지 스왑
                 case 1:
+                    scaleBtn.image.sprite = scaleImage[1];
                     buyScale = 5;
                     break;
                 case 5:
+                    scaleBtn.image.sprite = scaleImage[2];
                     buyScale = 10;
                     break;
                 case 10:
+                    scaleBtn.image.sprite = scaleImage[3];
                     buyScale = 50;
                     break;
                 case 50:
+                    scaleBtn.image.sprite = scaleImage[0];
                     buyScale = 1;
+                    break;
+                default: Debug.Assert(buyScale > 0);
                     break;
             }
             nowPrice.text = StringFormat.ToString((cost.Last() * (ulong)buyScale));
