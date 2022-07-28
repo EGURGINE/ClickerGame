@@ -7,8 +7,8 @@ using System.IO;
 public class StatusManager : Singleton<StatusManager>
 {
     private GameManager gameManager;
-    private const string SAVESTR = "SaveData";
-    private const string LOADSTR = "LoadData";
+
+    private const string SAVELOADSTR = "DATAS";
 
     public Student[] studentdata;//scriptableObject
     public ClassRoom[] classroom;//scriptableObject
@@ -23,7 +23,6 @@ public class StatusManager : Singleton<StatusManager>
     {
         gameManager = GameManager.Instance;
         GetDataToJson();
-        print(statDatas);
     }
     private void Start()
     {
@@ -84,7 +83,7 @@ public class StatusManager : Singleton<StatusManager>
     {
         SaveData();
         string str = JsonUtility.ToJson(statDatas);
-        PlayerPrefs.SetString("Datas", str);
+        PlayerPrefs.SetString(SAVELOADSTR, str);
 #if UNITY_EDITOR
         //Application.persistentDataPath;
         File.WriteAllText($"{Application.dataPath}/Json.txt", str);
@@ -95,7 +94,7 @@ public class StatusManager : Singleton<StatusManager>
     }
     public void GetDataToJson()
     {
-        
+
         string path;
 #if UNITY_EDITOR
         path = $"{Application.dataPath}/Json.txt";
@@ -105,8 +104,13 @@ public class StatusManager : Singleton<StatusManager>
         if (File.Exists(path) == false) return;
 
         string str = File.ReadAllText(path);
-        JsonUtility.FromJson<StatusSave>(str);
-        LoadData();
+
+        StatusSave temp = JsonUtility.FromJson<StatusSave>(str);
+        if (temp != null)
+        {
+            statDatas = temp;
+            LoadData();
+        }
     }
     private void OnApplicationQuit()
     {
@@ -125,7 +129,7 @@ public class StatusSave
     public int[] studentLevel = new int[5];//학생 레벨
     public bool[] classBoolean = new bool[5];//교실을 삿냐
     public ulong[] classCurCost = new ulong[5];//현재 교실 가격
-    public float[,] dotYPos = new float[5,5];//주식 Y좌표
+    public float[,] dotYPos = new float[5, 5];//주식 Y좌표
     public float[] quitTime = new float[5];//나간시간
     public float[] cycleTime = new float[5];//주식 리젠시간
     public int[] stockHave = new int[5];//주식 가지고있는 갯수
