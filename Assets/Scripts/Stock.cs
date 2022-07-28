@@ -86,7 +86,7 @@ public class Stock : MonoBehaviour
     #endregion
     private void Awake()
     {
-        Import();
+        //Import();
     }
     private void Start()
     {
@@ -208,7 +208,7 @@ public class Stock : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        Save();
+        //Save();
     }
     private void Save()
     {

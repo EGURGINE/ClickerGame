@@ -23,9 +23,12 @@ public class StatusManager : Singleton<StatusManager>
     {
         gameManager = GameManager.Instance;
     }
-    private void Start()
+    private void OnEnable()
     {
         GetDataToJson();
+    }
+    private void Start()
+    {
     }
     //Application.persistentDataPath;
     public void LoadData()
