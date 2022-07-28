@@ -36,7 +36,8 @@ public class Stock : MonoBehaviour
 
     [Header("점")]
     [SerializeField] List<GameObject> dot = new List<GameObject>();
-    public List<float> posY = new List<float>();
+
+    [HideInInspector] public List<float> posY = new List<float>();
 
     [Header("비용")]
     [SerializeField] private List<ulong> cost = new List<ulong>();
@@ -83,6 +84,10 @@ public class Stock : MonoBehaviour
         }
     }
     #endregion
+    private void Awake()
+    {
+        Import();
+    }
     private void Start()
     {
         #region 버튼
@@ -130,7 +135,6 @@ public class Stock : MonoBehaviour
         });
         #endregion
         subject.text = type.ToString();
-        Import();
         Invoke("Graph", delay);
     }
     private void Update()
@@ -160,7 +164,7 @@ public class Stock : MonoBehaviour
                 PlayerPrefs.SetString((int)type + "Cost", "0");
             }
             posY.Add(PlayerPrefs.GetFloat(type + "DotPosY" + i));
-            cost.Add(uint.Parse(PlayerPrefs.GetString(type + "Cost")));
+            cost.Add(ulong.Parse(PlayerPrefs.GetString(type + "Cost")));
             costTxt[i].text = StringFormat.ToString(cost[i]);
             dot[i].GetComponent<RectTransform>().localPosition += new Vector3(0, posY[i], 0);
         }

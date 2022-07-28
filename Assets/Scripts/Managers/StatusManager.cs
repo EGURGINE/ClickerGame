@@ -22,11 +22,10 @@ public class StatusManager : Singleton<StatusManager>
     private void Awake()
     {
         gameManager = GameManager.Instance;
-        GetDataToJson();
     }
     private void Start()
     {
-
+        GetDataToJson();
     }
     //Application.persistentDataPath;
     public void LoadData()
