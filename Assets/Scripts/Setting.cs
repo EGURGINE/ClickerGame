@@ -16,14 +16,17 @@ public class Setting : MonoBehaviour
     {
         SettingOnBtn.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             SetWnd.SetActive(true);
         });
         Exit.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             SetWnd.SetActive(false);
         });
         Bgm.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             switch (GameManager.Instance.isBgm)
             {
                 case true:
@@ -38,6 +41,7 @@ public class Setting : MonoBehaviour
         });
         Sfx.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             switch (GameManager.Instance.isSfx)
             {
                 case true:
@@ -52,6 +56,7 @@ public class Setting : MonoBehaviour
         });
         Effect.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             switch (GameManager.Instance.isEffect)
             {
                 case true:

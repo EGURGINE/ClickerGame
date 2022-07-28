@@ -4483,8 +4483,13 @@ MonoBehaviour:
   - {fileID: 1169690869}
   - {fileID: 355037539}
   - {fileID: 1806049833}
-  posY: []
-  cost: 
+  posY:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  cost: f049020000000000f049020000000000f049020000000000f049020000000000f049020000000000
   costTxt:
   - {fileID: 728768580}
   - {fileID: 516318374}
@@ -5016,7 +5021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -711.5, y: 574.99994}
+  m_AnchoredPosition: {x: -711.5, y: 575.00006}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &314638688
@@ -8672,8 +8677,13 @@ MonoBehaviour:
   - {fileID: 1314140971}
   - {fileID: 417364863}
   - {fileID: 469228739}
-  posY: []
-  cost: 
+  posY:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  cost: e803000000000000e803000000000000e803000000000000e803000000000000e803000000000000
   costTxt:
   - {fileID: 146198845}
   - {fileID: 1963206988}
@@ -14701,7 +14711,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 681385817}
   m_HandleRect: {fileID: 681385816}
   m_Direction: 3
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -19930,6 +19940,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204039425}
   m_CullTransparentMesh: 1
+--- !u!1 &1205672547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1205672549}
+  - component: {fileID: 1205672548}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1205672548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205672547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5f17b6f1418ae4696737009c3ba188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: e351f67778cfd74499f7337f3e799f3c, type: 3}
+  - {fileID: 8300000, guid: d88ef01cc6c276c43a2e54e30fd6156c, type: 3}
+  - {fileID: 8300000, guid: 4d9fc48de9218d445a386ac4a3aad8d8, type: 3}
+--- !u!4 &1205672549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205672547}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207583702
 GameObject:
   m_ObjectHideFlags: 0
@@ -27387,8 +27444,13 @@ MonoBehaviour:
   - {fileID: 1045562159}
   - {fileID: 337088561}
   - {fileID: 1152780317}
-  posY: []
-  cost: 
+  posY:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  cost: 50c300000000000050c300000000000050c300000000000050c300000000000050c3000000000000
   costTxt:
   - {fileID: 167374800}
   - {fileID: 2138772699}
@@ -30252,8 +30314,13 @@ MonoBehaviour:
   - {fileID: 1732565422}
   - {fileID: 1307410257}
   - {fileID: 833970507}
-  posY: []
-  cost: 
+  posY:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  cost: e093040000000000e093040000000000e093040000000000e093040000000000e093040000000000
   costTxt:
   - {fileID: 610403522}
   - {fileID: 482629360}
@@ -35004,8 +35071,13 @@ MonoBehaviour:
   - {fileID: 540148265}
   - {fileID: 1458425872}
   - {fileID: 2001811503}
-  posY: []
-  cost: 
+  posY:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  cost: 20a107000000000020a107000000000020a107000000000020a107000000000020a1070000000000
   costTxt:
   - {fileID: 654034931}
   - {fileID: 499125925}

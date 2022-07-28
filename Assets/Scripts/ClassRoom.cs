@@ -81,6 +81,7 @@ public class ClassRoom : MonoBehaviour
         //}
         buyBtn.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             IsBought = true;
             //if (isCalling == false)
             //{
@@ -89,6 +90,7 @@ public class ClassRoom : MonoBehaviour
         });
         sellBtn.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             IsBought = false;
             if (isCalling == true)
             {

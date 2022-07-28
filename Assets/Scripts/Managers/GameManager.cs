@@ -143,6 +143,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.PlaySound(SoundType.Bgm);
+
         classBuy.SetActive(false);
 
         clickArea.onClick.AddListener(() =>
@@ -215,6 +217,7 @@ public class GameManager : MonoBehaviour
         {
             effort += (ulong)(clickPerEffortProduct * FEVER);
         }
+        SoundManager.Instance.PlaySound(SoundType.Click);
         //effortAnim.Play();
     }
     #region ΩÃ±€≈Ê

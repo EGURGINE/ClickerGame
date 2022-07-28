@@ -57,6 +57,7 @@ public class StudentPresident : MonoBehaviour
 
         upGradeBtn.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             if (cost <= GameManager.Instance.Effort)
             {
                 level += 1;

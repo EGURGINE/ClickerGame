@@ -30,19 +30,22 @@ public class SoundManager : MonoBehaviour
     {
         instance = this;
     }
-
     public void PlaySound(SoundType soundType)
     {
         GameObject sound = new GameObject("sound");
 
         AudioSource audioSource = sound.AddComponent<AudioSource>();
+        audioSource.clip = clips[(int)soundType];
         if (soundType == SoundType.Bgm)
         {
+            audioSource.volume = 0.1f;
             audioSource.loop = true;
         }
-        audioSource.clip = clips[(int)soundType];
+        else
+        {
+            Destroy(sound, audioSource.clip.length);
+        }
         audioSource.Play();
 
-        Destroy(sound, audioSource.clip.length);
     }
 }

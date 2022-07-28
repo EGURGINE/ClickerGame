@@ -37,7 +37,7 @@ public class Stock : MonoBehaviour
     [Header("점")]
     [SerializeField] List<GameObject> dot = new List<GameObject>();
 
-    [HideInInspector] public List<float> posY = new List<float>(6);
+    public List<float> posY = new List<float>(6);
 
     [Header("비용")]
     [SerializeField] private List<ulong> cost = new List<ulong>();
@@ -93,6 +93,7 @@ public class Stock : MonoBehaviour
         #region 버튼
         buyBtn.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             if (GameManager.Instance.Effort > cost.Last() * (ulong)buyScale)
             {
                 Have += buyScale;
@@ -101,6 +102,7 @@ public class Stock : MonoBehaviour
         });
         sellBtn.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             if (have > 0)
             {
                 Have -= buyScale;
@@ -109,6 +111,7 @@ public class Stock : MonoBehaviour
         });
         scaleBtn.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             switch (buyScale)
             {
                 // 이미지 스왑
