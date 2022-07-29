@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         set
         {
             effort = value;
-
+            print(Effort);
         }
     }
 
@@ -95,9 +95,7 @@ public class GameManager : MonoBehaviour
         }
         set
         {
-
             clickPerEffortProduct = value;
-
         }
     }
     #endregion
@@ -174,7 +172,7 @@ public class GameManager : MonoBehaviour
         neglectTxt.text = $"너가 없던 사이 {NeglectCompensation} 만큼 노력했다...";
     }
     private IEnumerator CPerSecondEffortProduct()//초당 생산
-    { 
+    {
         yield return new WaitForSeconds(1f);
         Effort += EffortPerSecondProduct;
         StartCoroutine(CPerSecondEffortProduct());
@@ -186,7 +184,14 @@ public class GameManager : MonoBehaviour
     private void TextUpDate()
     {
         effortText.text = StringFormat.GetThousandCommaText(effort) + "노력";
-        perClickEffortText.text = StringFormat.GetThousandCommaText(clickPerEffortProduct) + "/클릭";
+        if (isFeverTime == true)
+        {
+            perClickEffortText.text = StringFormat.GetThousandCommaText(clickPerEffortProduct + clickPerEffortProduct/5) + "/클릭";
+        }
+        else
+        {
+            perClickEffortText.text = StringFormat.GetThousandCommaText(clickPerEffortProduct) + "/클릭";
+        }
         perSecondEffortText.text = StringFormat.GetThousandCommaText(effortPerSecondProduct) + "/초";
     }
     private void FixedUpdate()
@@ -211,11 +216,11 @@ public class GameManager : MonoBehaviour
         {
             effort += clickPerEffortProduct;
             Fever += 1;
-            
+
         }
         else if (isFeverTime == true)
         {
-            effort += (ulong)(clickPerEffortProduct * FEVER);
+            effort += (ulong)(clickPerEffortProduct * FEVER); ;
         }
         SoundManager.Instance.PlaySound(SoundType.Click);
         //effortAnim.Play();

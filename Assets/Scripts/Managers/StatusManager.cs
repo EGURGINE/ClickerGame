@@ -30,6 +30,7 @@ public class StatusManager : Singleton<StatusManager>
     }
     private void Start()
     {
+
     }
     //Application.persistentDataPath;
     public void LoadData()
