@@ -44,16 +44,22 @@ public class Student : MonoBehaviour
         {
             grayBtn.gameObject.SetActive(true);
         }
+        Texts();
+        Increment();
+    }
+    private void Texts()
+    {
         studentData.cost = (ulong)studentData.level * (ulong)studentData.increment;
         leveltxt.text = $"{studentData.level} Level";
         costtxt.text = $"{StringFormat.ToString(studentData.cost)}";
         graycosttxt.text = $"{StringFormat.ToString(studentData.cost)}";
-        Increment();
     }
+
     private void OnClickBtns()
     {
         upGradeBtn.onClick.AddListener(() =>
         {
+            SoundManager.Instance.PlaySound(SoundType.Button);
             if (GameManager.Instance.Effort >= studentData.cost)
             {
                 studentData.level += 1;
