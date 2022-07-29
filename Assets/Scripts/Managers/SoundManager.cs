@@ -6,7 +6,8 @@ public enum SoundType
 {
     Bgm,
     Click,
-    Button
+    Button,
+    End
 }
 public class SoundManager : MonoBehaviour
 {
@@ -26,9 +27,14 @@ public class SoundManager : MonoBehaviour
     }
     #endregion
     [SerializeField] private List<AudioClip> clips; 
+
+    private Dictionary<SoundType,float> soundVolume = new Dictionary<SoundType, float>();
     private void Awake()
     {
         instance = this;
+        soundVolume.Add(SoundType.Bgm, 0.1f);
+        soundVolume.Add(SoundType.Click, 1f);
+        soundVolume.Add(SoundType.Button, 0.5f);
     }
     public void PlaySound(SoundType soundType)
     {
@@ -36,9 +42,10 @@ public class SoundManager : MonoBehaviour
 
         AudioSource audioSource = sound.AddComponent<AudioSource>();
         audioSource.clip = clips[(int)soundType];
+        audioSource.volume = soundVolume[soundType];
+
         if (soundType == SoundType.Bgm)
         {
-            audioSource.volume = 0.1f;
             audioSource.loop = true;
         }
         else

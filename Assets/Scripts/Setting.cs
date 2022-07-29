@@ -12,7 +12,7 @@ public class Setting : MonoBehaviour
     [SerializeField] private Button Bgm;
     [SerializeField] private Button Sfx;
     [SerializeField] private Button Effect;
-    void Start()
+    private void Start()
     {
         SettingOnBtn.onClick.AddListener(() =>
         {
@@ -22,6 +22,7 @@ public class Setting : MonoBehaviour
         Exit.onClick.AddListener(() =>
         {
             SoundManager.Instance.PlaySound(SoundType.Button);
+            print("?");
             SetWnd.SetActive(false);
         });
         Bgm.onClick.AddListener(() =>
