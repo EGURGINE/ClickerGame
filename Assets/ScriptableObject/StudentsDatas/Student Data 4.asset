@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e805df42c4e39e42901aeaeb600f6cd, type: 3}
   m_Name: Student Data 4
   m_EditorClassIdentifier: 
+  student: {fileID: 0}
   animator: {fileID: 0}
   studentType: 3
-  timePerSecondProduct: 40
+  timePerSecondProduct: 0
   productIncrement: 10
   baseCost: 1000
-  cost: 4000
+  cost: 0
   increment: 5000
-  level: 4
+  level: 0
   studentName: "3D \uADF8\uB798\uD53D \uB514\uC790\uC774\uB108"

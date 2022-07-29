@@ -25,6 +25,7 @@ public class StatusManager : Singleton<StatusManager>
     }
     private void OnEnable()
     {
+        //SetDataToJson();
         GetDataToJson();
     }
     private void Start()
@@ -84,7 +85,7 @@ public class StatusManager : Singleton<StatusManager>
     public void SetDataToJson()
     {
         SaveData();
-        string str = JsonUtility.ToJson(statDatas);
+        string str = JsonUtility.ToJson(statDatas , true);
         PlayerPrefs.SetString(SAVELOADSTR, str);
 #if UNITY_EDITOR
         //Application.persistentDataPath;
@@ -96,7 +97,6 @@ public class StatusManager : Singleton<StatusManager>
     }
     public void GetDataToJson()
     {
-
         string path;
 #if UNITY_EDITOR
         path = $"{Application.dataPath}/Json.txt";
