@@ -5,10 +5,12 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 public class ClassScroll : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    private readonly int minRange = 50;
+    private readonly int minRange = 500;
     [SerializeField] private GameObject Maps;
     float startPosX;
-    int isMapNum = 1;
+    int isMapNum = 0;
+    [SerializeField] private GameObject[] mapObjs;
+    [SerializeField] private GameObject mapLight;
     public void OnPointerDown(PointerEventData eventData)
     {
         startPosX = Input.mousePosition.x;
@@ -19,49 +21,22 @@ public class ClassScroll : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         float mouseUpPos = Input.mousePosition.x;
         if (mouseUpPos <= startPosX - minRange)
         {
-            if (isMapNum >= 5) return;
+            if (isMapNum >= 4) return;
             else isMapNum++;
-            switch (isMapNum)
-            {
-                case 1:
-                    Maps.transform.DOLocalMoveX(0, 1f);
-                    break;
-                case 2:
-                    Maps.transform.DOLocalMoveX(-60, 1f);
-                    break;
-                case 3:
-                    Maps.transform.DOLocalMoveX(-120, 1f);
-                    break;
-                case 4:
-                    Maps.transform.DOLocalMoveX(-180, 1f);
-                    break;
-                case 5:
-                    Maps.transform.DOLocalMoveX(-240, 1f);
-                    break;
-            }
         }
         else if (mouseUpPos >= startPosX + minRange)
         {
-            if (isMapNum <= 1) return;
+            if (isMapNum <= 0) return;
             else isMapNum--;
-            switch (isMapNum)
-            {
-                case 1:
-                    Maps.transform.DOLocalMoveX(0, 1f);
-                    break;
-                case 2:
-                    Maps.transform.DOLocalMoveX(-60, 1f);
-                    break;
-                case 3:
-                    Maps.transform.DOLocalMoveX(-120, 1f);
-                    break;
-                case 4:
-                    Maps.transform.DOLocalMoveX(-180, 1f);
-                    break;
-                case 5:
-                    Maps.transform.DOLocalMoveX(-240, 1f);
-                    break;
-            }
         }
+        mapLight.SetActive(false);
+        Maps.transform.DOLocalMoveX(isMapNum * -60, 1f).OnComplete(() =>
+        {
+            if (mapObjs[isMapNum].GetComponent<ClassRoom>().IsBought)
+            {
+                mapLight.SetActive(true);
+            }
+            else mapLight.SetActive(false);
+        });
     }
 }

@@ -13220,6 +13220,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Maps: {fileID: 789196395}
+  mapObjs:
+  - {fileID: 228224368}
+  - {fileID: 973036614}
+  - {fileID: 1570577352}
+  - {fileID: 1879929630}
+  - {fileID: 1659693578}
+  mapLight: {fileID: 569188231}
 --- !u!1 &698234216
 GameObject:
   m_ObjectHideFlags: 0
