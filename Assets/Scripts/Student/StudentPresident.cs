@@ -32,6 +32,9 @@ public class StudentPresident : MonoBehaviour
     private Button upGradeBtn;
     #endregion
     [SerializeField]
+    private int increment;
+
+    [SerializeField]
     private int level = 1;
     public int Level
     {
@@ -41,7 +44,6 @@ public class StudentPresident : MonoBehaviour
             level = value;
         }
     }
-    [SerializeField]
     private ulong cost;
     public ulong Cost
     {
@@ -61,7 +63,7 @@ public class StudentPresident : MonoBehaviour
             if (cost <= GameManager.Instance.Effort)
             {
                 level += 1;
-                GameManager.Instance.Effort -= cost;
+                GameManager.Instance.Effort -= cost * (ulong)level;
                 GameManager.Instance.ClickPerEffortProduct += (ulong)(Level * 0.9);
             }
 
@@ -70,6 +72,7 @@ public class StudentPresident : MonoBehaviour
 
     private void Update()
     {
+
         if (cost > GameManager.Instance.Effort)
         {
             graybtn.gameObject.SetActive(true);
@@ -78,6 +81,11 @@ public class StudentPresident : MonoBehaviour
         {
             graybtn.gameObject.SetActive(false);
         }
+        cost = (ulong)(increment * level);
+        Texts();
+    }
+    private void Texts()
+    {
         leveltxt.text = $"{level}Level";
         graybtncosttxt.text = $"{StringFormat.GetThousandCommaText(cost)}";
         costtxt.text = $"{StringFormat.GetThousandCommaText(cost)}";
