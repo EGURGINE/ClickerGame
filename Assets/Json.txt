@@ -1,6 +1,6 @@
 {
-    "effort": 0,
-    "studentPresidentLevel": 1,
+    "effort": 9999091082,
+    "studentPresidentLevel": 9,
     "studentLevel": [
         1,
         1,

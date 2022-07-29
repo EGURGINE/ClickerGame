@@ -10,11 +10,13 @@ public class Student : MonoBehaviour
 
     [Header("UIµé")]
     [SerializeField]
-    private Image image;
-    [SerializeField]
     private Button upGradeBtn;
     [SerializeField]
     private Button grayBtn;
+    [SerializeField]
+    private Sprite sprite;
+    [SerializeField]
+    private Image image;
 
     [Header("Text")]
     [Space(20f)]
@@ -29,19 +31,8 @@ public class Student : MonoBehaviour
 
     private void Start()
     {
-        upGradeBtn.onClick.AddListener(() =>
-        {
-            if (GameManager.Instance.Effort >= studentData.cost)
-            {
-                studentData.level += 1;
-                GameManager.Instance.Effort -= studentData.cost;
-            }
-            else
-            {
-
-            }
-        });
-        nametxt.text = studentData.studentName;
+        image.sprite = sprite;
+        OnClickBtns();
     }
     private void Update()
     {
@@ -59,7 +50,22 @@ public class Student : MonoBehaviour
         graycosttxt.text = $"{StringFormat.ToString(studentData.cost)}";
         Increment();
     }
+    private void OnClickBtns()
+    {
+        upGradeBtn.onClick.AddListener(() =>
+        {
+            if (GameManager.Instance.Effort >= studentData.cost)
+            {
+                studentData.level += 1;
+                GameManager.Instance.Effort -= studentData.cost;
+            }
+            else
+            {
 
+            }
+        });
+        nametxt.text = studentData.studentName;
+    }
     private void Increment()
     {
         studentData.timePerSecondProduct = (ulong)(studentData.level * studentData.productIncrement);
