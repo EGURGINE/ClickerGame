@@ -86,7 +86,7 @@ public class StatusManager : Singleton<StatusManager>
     public void SetDataToJson()
     {
         SaveData();
-        string str = JsonUtility.ToJson(statDatas , true);
+        string str = JsonUtility.ToJson(statDatas, true);
         PlayerPrefs.SetString(SAVELOADSTR, str);
 #if UNITY_EDITOR
         //Application.persistentDataPath;
@@ -98,22 +98,27 @@ public class StatusManager : Singleton<StatusManager>
     }
     public void GetDataToJson()
     {
-        string path;
-#if UNITY_EDITOR
-        path = $"{Application.dataPath}/Json.txt";
-#else
-        path = $"{Application.persistentDataPath}/MobileJson.txt";
-#endif
+        //        string path;
+        //#if UNITY_EDITOR
+        //        path = $"{Application.dataPath}/Json.txt";
+        //#else
+        //        path = $"{Application.persistentDataPath}/MobileJson.txt";
+        //#endif
+
+        string path = PlayerPrefs.GetString(SAVELOADSTR, "none");
         if (File.Exists(path) == false) return;
 
         string str = File.ReadAllText(path);
-
         StatusSave temp = JsonUtility.FromJson<StatusSave>(str);
-        if (temp != null)
+        if (path != "none")
         {
-            statDatas = temp;
-            LoadData();
+            if (temp != null)
+            {
+                statDatas = temp;
+                LoadData();
+            }
         }
+
     }
     private void OnApplicationQuit()
     {
