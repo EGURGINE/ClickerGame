@@ -1,10 +1,10 @@
 {
-    "effort": 0,
+    "effort": 590,
     "studentPresidentLevel": 1,
     "studentLevel": [
+        1,
         0,
-        0,
-        0,
+        1,
         0,
         0
     ],
@@ -16,9 +16,9 @@
         false
     ],
     "classCurCost": [
-        17600,
+        22600,
         1000000,
-        13365000,
+        13615000,
         100000000,
         1000000000
     ],

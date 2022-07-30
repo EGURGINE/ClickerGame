@@ -63,6 +63,7 @@ public class Student : MonoBehaviour
             if (GameManager.Instance.Effort >= studentData.cost)
             {
                 studentData.level += 1;
+                if (studentData.level == 1) CharacterPlacement.Instance.studentLook(studentData);
                 GameManager.Instance.Effort -= studentData.cost;
             }
             else
