@@ -22,6 +22,7 @@ public class StatusManager : Singleton<StatusManager>
     private void Awake()
     {
         gameManager = GameManager.Instance;
+        //PlayerPrefs.DeleteAll();
     }
     private void OnEnable()
     {
@@ -90,7 +91,7 @@ public class StatusManager : Singleton<StatusManager>
         PlayerPrefs.SetString(SAVELOADSTR, str);
 #if UNITY_EDITOR
         //Application.persistentDataPath;
-        File.WriteAllText($"{Application.dataPath}/Json.txt", str);
+        //File.WriteAllText($"{Application.dataPath}/Json.txt", str);
         Debug.Log(str);
 #else
         File.WriteAllText($"{Application.persistentDataPath}/MobileJson.txt", str);
@@ -98,26 +99,28 @@ public class StatusManager : Singleton<StatusManager>
     }
     public void GetDataToJson()
     {
-        //        string path;
-        //#if UNITY_EDITOR
-        //        path = $"{Application.dataPath}/Json.txt";
-        //#else
-        //        path = $"{Application.persistentDataPath}/MobileJson.txt";
-        //#endif
+        string path;
+#if UNITY_EDITOR
+        path = $"{Application.dataPath}/Json.txt";
+#else
+        path = $"{Application.persistentDataPath}/MobileJson.txt";
+#endif
 
-        string path = PlayerPrefs.GetString(SAVELOADSTR, "none");
-        if (File.Exists(path) == false) return;
-
-        string str = File.ReadAllText(path);
-        StatusSave temp = JsonUtility.FromJson<StatusSave>(str);
-        if (path != "none")
+        string info = PlayerPrefs.GetString(SAVELOADSTR, "none");
+        Debug.Log(info);
+        //if (File.Exists(path) == false) return;
+        //string str = File.ReadAllText(path);
+        if (info == "none")
         {
-            if (temp != null)
-            {
-                statDatas = temp;
-                LoadData();
-            }
+            return;
         }
+        StatusSave temp = JsonUtility.FromJson<StatusSave>(info);
+        if (temp != null)
+        {
+            statDatas = temp;
+            LoadData();
+        }
+
 
     }
     private void OnApplicationQuit()
