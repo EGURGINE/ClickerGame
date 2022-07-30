@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         set
         {
             effort = value;
-            print(Effort);
+            print(effort);
         }
     }
 

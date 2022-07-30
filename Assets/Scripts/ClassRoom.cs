@@ -39,8 +39,7 @@ public class ClassRoom : MonoBehaviour
             }
             else if (isBought == false)
             {
-                GameManager.Instance.Effort += classData.currentCost;
-                classData.currentCost = classData.buyCost;
+                
                 sellBtn.gameObject.SetActive(false);
                 buyBtn.gameObject.SetActive(true);
             }
@@ -97,6 +96,8 @@ public class ClassRoom : MonoBehaviour
             {
                 CancelInvoke(nameof(TimePerProducting));
             }
+            GameManager.Instance.Effort += classData.currentCost;
+            classData.currentCost = classData.buyCost;
         });
     }
     private void Update()

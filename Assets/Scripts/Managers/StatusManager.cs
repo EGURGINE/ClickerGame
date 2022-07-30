@@ -27,6 +27,7 @@ public class StatusManager : Singleton<StatusManager>
     private void OnEnable()
     {
         //SetDataToJson();
+        print(statDatas.effort);
         GetDataToJson();
     }
     private void Start()
