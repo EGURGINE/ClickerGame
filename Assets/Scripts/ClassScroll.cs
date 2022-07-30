@@ -29,6 +29,7 @@ public class ClassScroll : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             if (isMapNum <= 0) return;
             else isMapNum--;
         }
+        else return;
         mapLight.SetActive(false);
         Maps.transform.DOLocalMoveX(isMapNum * -60, 1f).OnComplete(() =>
         {
