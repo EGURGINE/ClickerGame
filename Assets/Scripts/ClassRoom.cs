@@ -39,7 +39,7 @@ public class ClassRoom : MonoBehaviour
             }
             else if (isBought == false)
             {
-                
+
                 sellBtn.gameObject.SetActive(false);
                 buyBtn.gameObject.SetActive(true);
             }
@@ -82,11 +82,10 @@ public class ClassRoom : MonoBehaviour
         {
             SoundManager.Instance.PlaySound(SoundType.Button);
             IsBought = true;
-            GameManager.Instance.Effort -= classData.buyCost;
-            //if (isCalling == false)
-            //{
-            //    InvokeRepeating(nameof(TimePerProducting), 1f, 1f);
-            //}
+            if (GameManager.Instance.Effort >= classData.buyCost)
+            {
+                GameManager.Instance.Effort -= classData.buyCost;
+            }
         });
         sellBtn.onClick.AddListener(() =>
         {

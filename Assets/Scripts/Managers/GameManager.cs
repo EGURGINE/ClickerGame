@@ -76,8 +76,6 @@ public class GameManager : MonoBehaviour
                 + studentDatas[3].timePerSecondProduct
                 + studentDatas[4].timePerSecondProduct;
             #endregion
-
-
             return effortPerSecondProduct = a;
         }
         set
@@ -221,11 +219,10 @@ public class GameManager : MonoBehaviour
         {
             effort += clickPerEffortProduct;
             Fever += 1;
-
         }
         else if (isFeverTime == true)
         {
-            effort += (ulong)(clickPerEffortProduct * FEVER); ;
+            effort += (ulong)(clickPerEffortProduct * FEVER);
         }
         SoundManager.Instance.PlaySound(SoundType.Click);
         //effortAnim.Play();

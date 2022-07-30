@@ -8,6 +8,8 @@ public class StatusManager : Singleton<StatusManager>
 {
     private GameManager gameManager;
 
+    public bool debug;
+
     private const string SAVELOADSTR = "DATAS";
 
     public Student[] studentdata;//scriptableObject
@@ -21,9 +23,11 @@ public class StatusManager : Singleton<StatusManager>
 
     private void Awake()
     {
+        if (debug == true)
+        {
+            ReMovePrefsKey();
+        }
         gameManager = GameManager.Instance;
-
-        ReMovePrefsKey();
 
         //SetDataToJson();
         GetDataToJson();
@@ -32,13 +36,10 @@ public class StatusManager : Singleton<StatusManager>
     {
         print(statDatas.effort);
     }
-    private void Start()
-    {
-
-    }
     //Application.persistentDataPath;
     private void ReMovePrefsKey()
     {
+        //just for debug
         PlayerPrefs.DeleteKey(SAVELOADSTR);
     }
     public void LoadData()
