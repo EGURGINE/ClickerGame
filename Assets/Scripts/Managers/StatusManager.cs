@@ -22,19 +22,25 @@ public class StatusManager : Singleton<StatusManager>
     private void Awake()
     {
         gameManager = GameManager.Instance;
-        //PlayerPrefs.DeleteAll();
+
+        ReMovePrefsKey();
+
+        //SetDataToJson();
+        GetDataToJson();
     }
     private void OnEnable()
     {
-        //SetDataToJson();
         print(statDatas.effort);
-        GetDataToJson();
     }
     private void Start()
     {
 
     }
     //Application.persistentDataPath;
+    private void ReMovePrefsKey()
+    {
+        PlayerPrefs.DeleteKey(SAVELOADSTR);
+    }
     public void LoadData()
     {
         gameManager.Effort = statDatas.effort;
