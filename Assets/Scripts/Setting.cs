@@ -32,10 +32,12 @@ public class Setting : MonoBehaviour
             {
                 case true:
                     GameManager.Instance.isBgm = false;
+                    Destroy(GameManager.Instance.bgm);
                     //이미지 스왑
                     break;
                 case false:
                     GameManager.Instance.isBgm = true;
+                    SoundManager.Instance.PlaySound(SoundType.Bgm);
                     //이미지 스왑
                     break;
             }

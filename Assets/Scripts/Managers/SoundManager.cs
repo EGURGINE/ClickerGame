@@ -38,6 +38,8 @@ public class SoundManager : MonoBehaviour
     }
     public void PlaySound(SoundType soundType)
     {
+        if (soundType != SoundType.Bgm && GameManager.Instance.isSfx == false) return;
+
         GameObject sound = new GameObject("sound");
 
         AudioSource audioSource = sound.AddComponent<AudioSource>();
@@ -46,6 +48,7 @@ public class SoundManager : MonoBehaviour
 
         if (soundType == SoundType.Bgm)
         {
+            GameManager.Instance.bgm = sound;
             audioSource.loop = true;
         }
         else

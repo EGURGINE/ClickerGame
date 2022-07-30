@@ -100,9 +100,9 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     #region ¼ÂÆÃ
-    [HideInInspector] public bool isBgm;
-    [HideInInspector] public bool isSfx;
-    [HideInInspector] public bool isEffect;
+    [HideInInspector] public bool isBgm = true;
+    [HideInInspector] public bool isSfx = true;
+    [HideInInspector] public bool isEffect = true;
     #endregion
 
     [SerializeField]
@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool isFeverTime;
 
+    public GameObject bgm;
     private void Awake()
     {
         instance = this;
@@ -141,8 +142,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SoundManager.Instance.PlaySound(SoundType.Bgm);
-
         classBuy.SetActive(false);
 
         clickArea.onClick.AddListener(() =>
