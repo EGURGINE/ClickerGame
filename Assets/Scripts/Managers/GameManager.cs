@@ -142,6 +142,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        #region ¼ÂÆÃ
+        isBgm = true;
+        isSfx = true;
+        isEffect = true;
+        SoundManager.Instance.PlaySound(SoundType.Bgm);
+        #endregion
         classBuy.SetActive(false);
 
         clickArea.onClick.AddListener(() =>
