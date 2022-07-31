@@ -81,9 +81,10 @@ public class ClassRoom : MonoBehaviour
         buyBtn.onClick.AddListener(() =>
         {
             SoundManager.Instance.PlaySound(SoundType.Button);
-            IsBought = true;
             if (GameManager.Instance.Effort >= classData.buyCost)
             {
+                IsBought = true;
+                print("d");
                 GameManager.Instance.Effort -= classData.buyCost;
             }
         });
