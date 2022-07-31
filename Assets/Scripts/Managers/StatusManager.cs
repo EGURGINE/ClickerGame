@@ -37,11 +37,18 @@ public class StatusManager : Singleton<StatusManager>
         print(statDatas.effort);
     }
     //Application.persistentDataPath;
+
+    /// <summary>
+    /// PlayerPrefs에 저장된 데이터를 삭제하는 함수
+    /// </summary>
     private void ReMovePrefsKey()
     {
         //just for debug
         PlayerPrefs.DeleteKey(SAVELOADSTR);
     }
+    /// <summary>
+    /// 저장했던 데이터를 불러오는 함수
+    /// </summary>
     public void LoadData()
     {
         gameManager.Effort = statDatas.effort;
@@ -67,6 +74,9 @@ public class StatusManager : Singleton<StatusManager>
             stock[i].Have = statDatas.stockHave[i];
         }
     }
+    /// <summary>
+    /// 데이터를 저장하는 함수
+    /// </summary>
     public void SaveData()
     {
         statDatas.effort = gameManager.Effort;
