@@ -63,7 +63,6 @@ public class Stock : MonoBehaviour
         set
         {
             have = value;
-            haveTxt.text = have.ToString();
         }
     }
     #endregion
@@ -146,7 +145,7 @@ public class Stock : MonoBehaviour
         {
             lineRenderer.SetPosition(i, new Vector3(dot[i].transform.position.x, dot[i].transform.position.y, 89.9f)); ;
         }
-
+        haveTxt.text = $"¼ÒÁö¼ö: {have}";
         CycleDelay += Time.deltaTime;
     }
     private void Import()

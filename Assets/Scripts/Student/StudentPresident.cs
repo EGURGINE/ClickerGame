@@ -60,14 +60,18 @@ public class StudentPresident : MonoBehaviour
         upGradeBtn.onClick.AddListener(() =>
         {
             SoundManager.Instance.PlaySound(SoundType.Button);
-            if (cost <= GameManager.Instance.Effort)
-            {
-                level += 1;
-                GameManager.Instance.Effort -= cost * (ulong)level;
-                GameManager.Instance.ClickPerEffortProduct += (ulong)(Level * 0.9);
-            }
-
+            Buy();
         });
+    }
+    private void Buy()
+    {
+        if (cost <= GameManager.Instance.Effort)
+        {
+            GameManager.Instance.Effort -= cost * (ulong)level;
+            level += 1;
+            print("´­¸²");
+            GameManager.Instance.ClickPerEffortProduct += (ulong)(Level * 0.9);
+        }
     }
 
     private void Update()

@@ -84,8 +84,8 @@ public class ClassRoom : MonoBehaviour
             if (GameManager.Instance.Effort >= classData.buyCost)
             {
                 IsBought = true;
-                print("d");
                 GameManager.Instance.Effort -= classData.buyCost;
+                
             }
         });
         sellBtn.onClick.AddListener(() =>
