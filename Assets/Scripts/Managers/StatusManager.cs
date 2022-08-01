@@ -130,6 +130,7 @@ public class StatusManager : Singleton<StatusManager>
         //string str = File.ReadAllText(path);
         if (info == "none")
         {
+            Debug.Log("None");
             return;
         }
         StatusSave temp = JsonUtility.FromJson<StatusSave>(info);
@@ -137,6 +138,7 @@ public class StatusManager : Singleton<StatusManager>
         {
             statDatas = temp;
             LoadData();
+            Debug.Log("ºÒ·¯¿È");
         }
 
 
