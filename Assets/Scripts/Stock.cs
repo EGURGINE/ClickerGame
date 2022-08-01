@@ -170,7 +170,7 @@ public class Stock : MonoBehaviour
             costTxt[i].text = StringFormat.ToString(cost[i]);
             dot[i].GetComponent<RectTransform>().localPosition += new Vector3(0, posY[i], 0);
         }
-        nowPrice.text = StringFormat.ToString((cost[cost.Count - 1] * (ulong)buyScale));
+        nowPrice.text = StringFormat.ToString((cost.Last() * (ulong)buyScale));
     }
     private void Graph()
     {
