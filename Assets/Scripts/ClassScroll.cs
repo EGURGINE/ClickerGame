@@ -11,8 +11,6 @@ public class ClassScroll : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     int isMapNum = 0;
     [SerializeField] private GameObject[] mapObjs;
     [SerializeField] private GameObject mapLight;
-    public List<bool> classIsBought = new List<bool>(5);
-
     public void OnPointerDown(PointerEventData eventData)
     {
         startPosX = Input.mousePosition.x;
@@ -32,14 +30,6 @@ public class ClassScroll : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             else isMapNum--;
         }
         else return;
-        mapLight.SetActive(false);
-        Maps.transform.DOLocalMoveX(isMapNum * -60, 1f).OnComplete(() =>
-        {
-            if (classIsBought[isMapNum] == true)
-            {
-                mapLight.SetActive(true);
-            }
-            else mapLight.SetActive(false);
-        });
+        Maps.transform.DOLocalMoveX(isMapNum * -60, 1f);
     }
 }
