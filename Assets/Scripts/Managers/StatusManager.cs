@@ -55,7 +55,6 @@ public class StatusManager : Singleton<StatusManager>
     /// </summary>
     public void LoadData()
     {
-        gameManager.quitTime = statDatas.quitTime;
         gameManager.Effort = statDatas.effort;
         president.Level = statDatas.studentPresidentLevel;
         for (int i = 0; i < studentdata.Length; i++)
@@ -78,6 +77,7 @@ public class StatusManager : Singleton<StatusManager>
             stock[i].CycleDelay = statDatas.cycleTime[i];
             stock[i].Have = statDatas.stockHave[i];
         }
+        gameManager.quitTime = statDatas.quitTime;
         GameManager.Instance.isBgm = statDatas.bgm;
         GameManager.Instance.isSfx = statDatas.sfx;
         GameManager.Instance.isEffect = statDatas.effect;
@@ -176,7 +176,7 @@ public class StatusSave
     public float[,] dotYPos = new float[5, 5];//주식 Y좌표
     public float[] cycleTime = new float[5];//주식 리젠시간
     public int[] stockHave = new int[5];//주식 가지고있는 갯수
-    public float quitTime = 0;//나간시간
+    public float quitTime;//나간시간
     public bool bgm = true;
     public bool sfx = true;
     public bool effect = true;
