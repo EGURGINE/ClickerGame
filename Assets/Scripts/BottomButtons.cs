@@ -23,18 +23,11 @@ public class BottomButtons : MonoBehaviour
 
         for (int i = 0; i < ExitBtn.Length; i++)
         {
-            int index = i;
-            ExitBtn[index].onClick.AddListener(() =>
+            ExitBtn[i].onClick.AddListener(() =>
             {
-                for (int i = 0; i < bottomBords.Length; i++)
-                {
-                    bottomBords[i].SetActive(false);
-                    SoundManager.Instance.PlaySound(SoundType.Button);
-                }
+                bottomBords[i].SetActive(false);
+                SoundManager.Instance.PlaySound(SoundType.Button);
             });
-
         }
-
-
     }
 }
