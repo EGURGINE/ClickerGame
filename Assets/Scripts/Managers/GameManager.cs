@@ -169,6 +169,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Neglect()
     {
+        print("¹æÄ¡");
         float nowTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
         float OutTime = nowTime - quitTime;
         yield return new WaitForSeconds(1f);

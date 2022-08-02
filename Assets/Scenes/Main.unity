@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7643,6 +7643,7 @@ MonoBehaviour:
   fever: 0
   isFeverTime: 0
   bgm: {fileID: 0}
+  quitTime: 0
 --- !u!4 &431694073
 Transform:
   m_ObjectHideFlags: 0
@@ -22329,12 +22330,6 @@ MonoBehaviour:
     studentLevel: 0000000000000000000000000000000000000000
     classBoolean: 0000000000
     classCurCost: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
-    quitTime:
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
     cycleTime:
     - 0
     - 0
@@ -22342,6 +22337,7 @@ MonoBehaviour:
     - 0
     - 0
     stockHave: 0000000000000000000000000000000000000000
+    quitTime: 0
     bgm: 1
     sfx: 1
     effect: 1
