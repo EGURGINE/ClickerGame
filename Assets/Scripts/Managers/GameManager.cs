@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 using System.Text;
-
+using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     //피버 버프계수
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(CPerSecondEffortProduct());
         StartCoroutine(CPerSecondProduct());
-        //방치 보상 Neglect();
+        Neglect();
     }
     private IEnumerator CPerSecondProduct()
     {
@@ -173,6 +173,7 @@ public class GameManager : MonoBehaviour
         ulong NeglectCompensation = (effortPerSecondProduct * (ulong)(OutTime * 0.2));
         Effort += NeglectCompensation;
         neglectTxt.text = $"너가 없던 사이 {NeglectCompensation} 만큼 노력했다...";
+        neglectTxt.DOFade(0, 3);
     }
     private IEnumerator CPerSecondEffortProduct()//초당 생산
     {
