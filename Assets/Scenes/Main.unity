@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1094,7 +1094,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 510, y: 0}
-  m_SizeDelta: {x: 303, y: 141}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &100735793
 MonoBehaviour:
@@ -8775,7 +8775,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 510, y: 0}
-  m_SizeDelta: {x: 303, y: 141}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488715153
 MonoBehaviour:
@@ -10860,7 +10860,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 510, y: 0}
-  m_SizeDelta: {x: 303, y: 141}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588065421
 MonoBehaviour:
@@ -13629,7 +13629,6 @@ MonoBehaviour:
   - {fileID: 1879929630}
   - {fileID: 1659693578}
   mapLight: {fileID: 569188231}
-  classIsBought: 
 --- !u!1 &698234216
 GameObject:
   m_ObjectHideFlags: 0
@@ -14427,7 +14426,7 @@ MonoBehaviour:
   presidentName: "\uD559\uC0DD \uD68C\uC7A5"
   graybtn: {fileID: 617912974}
   upGradeBtn: {fileID: 1074945424}
-  increment: 300
+  increment: 100
   level: 1
 --- !u!224 &728623106
 RectTransform:
@@ -25826,7 +25825,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 510, y: 0}
-  m_SizeDelta: {x: 303, y: 141}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1415145019
 MonoBehaviour:
@@ -31090,7 +31089,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 510, y: 0}
-  m_SizeDelta: {x: 303, y: 141}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1771937287
 MonoBehaviour:

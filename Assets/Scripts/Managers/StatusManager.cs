@@ -28,7 +28,10 @@ public class StatusManager : Singleton<StatusManager>
             ReMovePrefsKey();
         }
         gameManager = GameManager.Instance;
-
+        for (int i = 0; i < studentdata.Length; i++)
+        {
+            print(studentdata[i].studentData.level);
+        }
         //SetDataToJson();
         GetDataToJson();
     }
@@ -83,7 +86,7 @@ public class StatusManager : Singleton<StatusManager>
         statDatas.studentPresidentLevel = president.Level;
         for (int i = 0; i < studentdata.Length; i++)
         {
-            print(studentdata.Length);
+            print(statDatas.studentLevel[i]);
             statDatas.studentLevel[i] = studentdata[i].studentData.level;
         }
         for (int i = 0; i < classroom.Length; i++)
@@ -130,7 +133,6 @@ public class StatusManager : Singleton<StatusManager>
         //string str = File.ReadAllText(path);
         if (info == "none")
         {
-            Debug.Log("None");
             return;
         }
         StatusSave temp = JsonUtility.FromJson<StatusSave>(info);

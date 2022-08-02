@@ -20,6 +20,6 @@ public class StudentData : ScriptableObject
     public ulong baseCost;//기본 업글 비용
     public ulong cost;//업글 비용
     public float increment;//업글당 비용 증가량
-    public int level = 1;//레벨
+    public int level;//레벨
     public string studentName;//이름
 }

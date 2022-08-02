@@ -75,6 +75,6 @@ public class Student : MonoBehaviour
     }
     private void Increment()
     {
-        studentData.timePerSecondProduct = (ulong)(studentData.level * studentData.productIncrement);
+        studentData.timePerSecondProduct = (ulong)((studentData.level) * studentData.productIncrement);
     }
 }
