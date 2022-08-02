@@ -16,7 +16,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   studentType: 3
   timePerSecondProduct: 0
-  productIncrement: 10
+  productIncrement: 500
   baseCost: 1000
   cost: 5000
   increment: 5000

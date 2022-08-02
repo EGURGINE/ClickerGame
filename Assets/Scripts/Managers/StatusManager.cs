@@ -25,6 +25,7 @@ public class StatusManager : Singleton<StatusManager>
     {
         if (debug == true)
         {
+            //just for debug
             ReMovePrefsKey();
         }
         gameManager = GameManager.Instance;
@@ -111,6 +112,9 @@ public class StatusManager : Singleton<StatusManager>
         statDatas.sfx = GameManager.Instance.isSfx;
         statDatas.effect = GameManager.Instance.isEffect;
     }
+    /// <summary>
+    /// Json에 저장하는 함수
+    /// </summary>
     public void SetDataToJson()
     {
         SaveData();
