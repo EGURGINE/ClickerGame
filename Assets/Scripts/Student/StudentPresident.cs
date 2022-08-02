@@ -7,6 +7,7 @@ using System.Text;
 
 public class StudentPresident : MonoBehaviour
 {
+    private const ulong ULONGMAX = 18446744073709551615;
     #region Text
     [Header("TextMeshPro")]
     [SerializeField]
@@ -67,9 +68,9 @@ public class StudentPresident : MonoBehaviour
     {
         if (cost <= GameManager.Instance.Effort)
         {
-            GameManager.Instance.Effort -= cost * (ulong)level;
-            level += 1;
+            GameManager.Instance.Effort -= (ulong)(increment * level);
             print("´­¸²");
+            level += 1;
             GameManager.Instance.ClickPerEffortProduct += (ulong)(Level * 0.9);
         }
     }
@@ -84,6 +85,11 @@ public class StudentPresident : MonoBehaviour
         else if (cost <= GameManager.Instance.Effort)
         {
             graybtn.gameObject.SetActive(false);
+        }
+
+        if(GameManager.Instance.Effort <= 0)
+        {
+            Mathf.Clamp(GameManager.Instance.Effort, 0, ULONGMAX);
         }
         cost = (ulong)(increment * level);
         Texts();

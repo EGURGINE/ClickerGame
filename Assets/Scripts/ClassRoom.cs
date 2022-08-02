@@ -8,17 +8,20 @@ public class ClassRoom : MonoBehaviour
 {
     public ClassData classData;
     public bool isCalling;
+    [SerializeField] private GameObject mapLight;
     private void OnEnable()
     {
         if (PlayerPrefs.GetInt(nameof(IsBought) + classData.classType) == 1)
         {
             isBought = true;
+            mapLight.SetActive(true);
             buyBtn.gameObject.SetActive(false);
             sellBtn.gameObject.SetActive(true);
         }
         else
         {
             isBought = false;
+            mapLight.SetActive(false);
             sellBtn.gameObject.SetActive(false);
             buyBtn.gameObject.SetActive(true);
             classData.currentCost = classData.buyCost;
@@ -34,12 +37,13 @@ public class ClassRoom : MonoBehaviour
             PlayerPrefs.SetInt(nameof(IsBought) + classData.classType, IsBought ? 1 : 0);
             if (isBought == true)
             {
+                mapLight.SetActive(true);
                 buyBtn.gameObject.SetActive(false);
                 sellBtn.gameObject.SetActive(true);
             }
             else if (isBought == false)
             {
-
+                mapLight.SetActive(false);
                 sellBtn.gameObject.SetActive(false);
                 buyBtn.gameObject.SetActive(true);
             }
