@@ -49,7 +49,6 @@ public class Student : MonoBehaviour
     }
     private void Texts()
     {
-        studentData.cost = (ulong)studentData.level * (ulong)studentData.increment;
         leveltxt.text = $"{studentData.level} Level";
         costtxt.text = $"{StringFormat.ToString(studentData.cost)}";
         graycosttxt.text = $"{StringFormat.ToString(studentData.cost)}";
@@ -75,6 +74,7 @@ public class Student : MonoBehaviour
     }
     private void Increment()
     {
+        studentData.cost = (ulong)(studentData.level + 1) * (ulong)studentData.increment;
         studentData.timePerSecondProduct = (ulong)((studentData.level) * studentData.productIncrement);
     }
 }
