@@ -1218,11 +1218,11 @@ Light:
   m_GameObject: {fileID: 103024993}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9301078, b: 0.759434, a: 1}
   m_Intensity: 1
-  m_Range: 1637.2
+  m_Range: 200
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3970,11 +3970,11 @@ Light:
   m_GameObject: {fileID: 263169714}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9301078, b: 0.759434, a: 1}
   m_Intensity: 1
-  m_Range: 120
+  m_Range: 200
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6536,11 +6536,11 @@ Light:
   m_GameObject: {fileID: 386041295}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9301078, b: 0.759434, a: 1}
   m_Intensity: 1
-  m_Range: 1637.2
+  m_Range: 200
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -16416,11 +16416,11 @@ Light:
   m_GameObject: {fileID: 847259447}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9301078, b: 0.759434, a: 1}
   m_Intensity: 1
-  m_Range: 1637.2
+  m_Range: 200
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -17403,11 +17403,11 @@ Light:
   m_GameObject: {fileID: 950606188}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9301078, b: 0.759434, a: 1}
   m_Intensity: 1
-  m_Range: 1637.2
+  m_Range: 200
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -23357,11 +23357,11 @@ Light:
   m_GameObject: {fileID: 1315886998}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9301078, b: 0.759434, a: 1}
   m_Intensity: 1
-  m_Range: 120
+  m_Range: 200
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -23589,11 +23589,11 @@ Light:
   m_GameObject: {fileID: 1335956752}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9301078, b: 0.759434, a: 1}
   m_Intensity: 1
-  m_Range: 120
+  m_Range: 200
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -23682,11 +23682,11 @@ Light:
   m_GameObject: {fileID: 1337754933}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9301078, b: 0.759434, a: 1}
   m_Intensity: 1
-  m_Range: 120
+  m_Range: 200
   m_SpotAngle: 179
   m_InnerSpotAngle: 1
   m_CookieSize: 10
@@ -30810,11 +30810,11 @@ Light:
   m_GameObject: {fileID: 1780229625}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9301078, b: 0.759434, a: 1}
   m_Intensity: 1
-  m_Range: 120
+  m_Range: 200
   m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -32567,11 +32567,11 @@ Light:
   m_GameObject: {fileID: 1869726882}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9301078, b: 0.759434, a: 1}
   m_Intensity: 1
-  m_Range: 1637.2
+  m_Range: 200
   m_SpotAngle: 179
   m_InnerSpotAngle: 1
   m_CookieSize: 10
