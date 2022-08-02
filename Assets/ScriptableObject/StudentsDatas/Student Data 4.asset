@@ -18,7 +18,7 @@ MonoBehaviour:
   timePerSecondProduct: 0
   productIncrement: 10
   baseCost: 1000
-  cost: 0
+  cost: 5000
   increment: 5000
   level: 0
   studentName: "3D \uADF8\uB798\uD53D \uB514\uC790\uC774\uB108"

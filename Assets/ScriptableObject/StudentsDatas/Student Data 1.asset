@@ -15,10 +15,10 @@ MonoBehaviour:
   student: {fileID: 0}
   animator: {fileID: 0}
   studentType: 0
-  timePerSecondProduct: 390
+  timePerSecondProduct: 0
   productIncrement: 10
   baseCost: 100
-  cost: 380
+  cost: 10
   increment: 10
-  level: 38
+  level: 0
   studentName: "\uBA54\uC778 \uD504\uB85C\uADF8\uB798\uBA38"

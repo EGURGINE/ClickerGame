@@ -76,6 +76,9 @@ public class StatusManager : Singleton<StatusManager>
             stock[i].CycleDelay = statDatas.cycleTime[i];
             stock[i].Have = statDatas.stockHave[i];
         }
+        GameManager.Instance.isBgm = statDatas.bgm;
+        GameManager.Instance.isSfx = statDatas.sfx;
+        GameManager.Instance.isEffect = statDatas.effect;
     }
     /// <summary>
     /// 데이터를 저장하는 함수
@@ -104,6 +107,9 @@ public class StatusManager : Singleton<StatusManager>
             statDatas.cycleTime[i] = stock[i].CycleDelay;
             statDatas.stockHave[i] = stock[i].Have;
         }
+        statDatas.bgm = GameManager.Instance.isBgm;
+        statDatas.sfx = GameManager.Instance.isSfx;
+        statDatas.effect = GameManager.Instance.isEffect;
     }
     public void SetDataToJson()
     {
@@ -166,4 +172,7 @@ public class StatusSave
     public float[] quitTime = new float[5];//나간시간
     public float[] cycleTime = new float[5];//주식 리젠시간
     public int[] stockHave = new int[5];//주식 가지고있는 갯수
+    public bool bgm = true;
+    public bool sfx = true;
+    public bool effect = true;
 }
