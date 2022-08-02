@@ -55,6 +55,7 @@ public class StatusManager : Singleton<StatusManager>
     /// </summary>
     public void LoadData()
     {
+        gameManager.quitTime = statDatas.quitTime;
         gameManager.Effort = statDatas.effort;
         president.Level = statDatas.studentPresidentLevel;
         for (int i = 0; i < studentdata.Length; i++)
@@ -73,7 +74,7 @@ public class StatusManager : Singleton<StatusManager>
             {
                 stock[i].posY[j] = statDatas.dotYPos[i, j];
             }
-            stock[i].quitTime = statDatas.quitTime[i];
+            stock[i].quitTime = statDatas.quitTime;
             stock[i].CycleDelay = statDatas.cycleTime[i];
             stock[i].Have = statDatas.stockHave[i];
         }
@@ -104,10 +105,10 @@ public class StatusManager : Singleton<StatusManager>
             {
                 statDatas.dotYPos[i, j] = stock[i].posY[j];
             }
-            statDatas.quitTime[i] = stock[i].quitTime;
             statDatas.cycleTime[i] = stock[i].CycleDelay;
             statDatas.stockHave[i] = stock[i].Have;
         }
+        statDatas.quitTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
         statDatas.bgm = GameManager.Instance.isBgm;
         statDatas.sfx = GameManager.Instance.isSfx;
         statDatas.effect = GameManager.Instance.isEffect;
@@ -173,9 +174,9 @@ public class StatusSave
     public bool[] classBoolean = new bool[5];//교실을 삿냐
     public ulong[] classCurCost = new ulong[5];//현재 교실 가격
     public float[,] dotYPos = new float[5, 5];//주식 Y좌표
-    public float[] quitTime = new float[5];//나간시간
     public float[] cycleTime = new float[5];//주식 리젠시간
     public int[] stockHave = new int[5];//주식 가지고있는 갯수
+    public float quitTime = 0;//나간시간
     public bool bgm = true;
     public bool sfx = true;
     public bool effect = true;

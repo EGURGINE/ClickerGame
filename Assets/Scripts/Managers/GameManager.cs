@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
     public bool isFeverTime;
 
     public GameObject bgm;
+    public float quitTime;
     private void Awake()
     {
         instance = this;
@@ -155,7 +156,7 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(CPerSecondEffortProduct());
         StartCoroutine(CPerSecondProduct());
-        Neglect();
+        StartCoroutine(Neglect());
     }
     private IEnumerator CPerSecondProduct()
     {
@@ -166,14 +167,17 @@ public class GameManager : MonoBehaviour
         }
         StartCoroutine(nameof(CPerSecondProduct));
     }
-    private void Neglect()
+    private IEnumerator Neglect()
     {
         float nowTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + DateTime.Now.Second;
-        float OutTime = nowTime - PlayerPrefs.GetFloat("QuitTime");
+        float OutTime = nowTime - quitTime;
+        yield return new WaitForSeconds(1f);
+        neglectTxt.gameObject.SetActive(true);
         ulong NeglectCompensation = (effortPerSecondProduct * (ulong)(OutTime * 0.2));
         Effort += NeglectCompensation;
+        print("dddddd" + NeglectCompensation);
         neglectTxt.text = $"너가 없던 사이 {NeglectCompensation} 만큼 노력했다...";
-        neglectTxt.DOFade(0, 3);
+        neglectTxt.DOFade(0, 5).OnComplete(()=> neglectTxt.gameObject.SetActive(false));
     }
     private IEnumerator CPerSecondEffortProduct()//초당 생산
     {
