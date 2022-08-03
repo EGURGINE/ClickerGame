@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Class Data 3
   m_EditorClassIdentifier: 
   classType: 2
-  timePerSecondProduct: 5000
-  buyCost: 10000000
-  currentCost: 10705000
+  timePerSecondProduct: 50000
+  buyCost: 1000000000000
+  currentCost: 0
   className: "Mac\uC2E4"

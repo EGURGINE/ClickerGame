@@ -3311,7 +3311,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: beabb94d84737e4499745d971d86386e, type: 2}
-  isCalling: 0
   mapLight: {fileID: 569188231}
   sellCosttxt: {fileID: 1132315223}
   buyCosttxt: {fileID: 325646501}
@@ -4190,6 +4189,7 @@ RectTransform:
   - {fileID: 1928338149}
   - {fileID: 671650775}
   - {fileID: 130561223}
+  - {fileID: 1942992824}
   m_Father: {fileID: 693363985}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7109,7 +7109,6 @@ RectTransform:
   - {fileID: 789564649}
   - {fileID: 1934627275}
   - {fileID: 695872308}
-  - {fileID: 1942992824}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7636,7 +7635,7 @@ MonoBehaviour:
   feverSlider: {fileID: 1942992825}
   feverText: {fileID: 892140044}
   effort: 0
-  clickPerEffortProduct: 10
+  clickPerEffortProduct: 1
   isBgm: 0
   isSfx: 0
   isEffect: 0
@@ -14025,7 +14024,7 @@ MonoBehaviour:
   presidentName: "\uD559\uC0DD \uD68C\uC7A5"
   graybtn: {fileID: 617912974}
   upGradeBtn: {fileID: 1074945424}
-  increment: 100
+  increment: 150
   level: 1
 --- !u!224 &728623106
 RectTransform:
@@ -17703,7 +17702,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 1695fa02115dd4845a2ed6d3f1c0ef75, type: 2}
-  isCalling: 0
   mapLight: {fileID: 1728933649}
   sellCosttxt: {fileID: 1665729037}
   buyCosttxt: {fileID: 1000584615}
@@ -22304,7 +22302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2209462018d20434e8654a9d855d8c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
   studentdata:
   - {fileID: 517241965}
   - {fileID: 1779088700}
@@ -27076,7 +27074,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 41054ef66f983b84db3c570592b9cd76, type: 2}
-  isCalling: 0
   mapLight: {fileID: 2073075299}
   sellCosttxt: {fileID: 1119645161}
   buyCosttxt: {fileID: 405159966}
@@ -28333,7 +28330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: bd7d0255e5993174192a4f91a47f8cec, type: 2}
-  isCalling: 0
   mapLight: {fileID: 2047579247}
   sellCosttxt: {fileID: 731467590}
   buyCosttxt: {fileID: 2039939126}
@@ -32822,7 +32818,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classData: {fileID: 11400000, guid: 4f063a5a48fb3fd4cb269ddb1b01f2e5, type: 2}
-  isCalling: 0
   mapLight: {fileID: 1591143679}
   sellCosttxt: {fileID: 1112978561}
   buyCosttxt: {fileID: 717447572}
@@ -34303,19 +34298,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942992823}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1396780209}
   - {fileID: 1741017776}
   - {fileID: 892140043}
-  m_Father: {fileID: 407489220}
-  m_RootOrder: 3
+  m_Father: {fileID: 277723137}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -250}
+  m_AnchoredPosition: {x: 20, y: -242.12}
   m_SizeDelta: {x: 5, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1942992825
@@ -34363,9 +34358,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 250
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

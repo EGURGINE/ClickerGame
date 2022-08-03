@@ -16,9 +16,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   studentType: 1
   timePerSecondProduct: 0
-  productIncrement: 50
-  baseCost: 10000
-  cost: 18000
-  increment: 1000
+  productIncrement: 500
+  cost: 550000
+  increment: 500000
   level: 0
   studentName: "\uC11C\uBE0C \uD504\uB85C\uADF8\uB798\uBA38"

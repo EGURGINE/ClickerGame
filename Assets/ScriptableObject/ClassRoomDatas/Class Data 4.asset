@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Class Data 4
   m_EditorClassIdentifier: 
   classType: 3
-  timePerSecondProduct: 10000
-  buyCost: 100000000
-  currentCost: 101410000
+  timePerSecondProduct: 100000
+  buyCost: 8000000000000
+  currentCost: 0
   className: "305\uD638"

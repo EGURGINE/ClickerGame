@@ -105,7 +105,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private float fever;//피버 게이지 값
-
+    [SerializeField]
+    private const float feverMax = 250;
     public float Fever
     {
         get
@@ -115,7 +116,7 @@ public class GameManager : MonoBehaviour
         set
         {
             fever = value;
-            if (fever >= 99)
+            if (fever >= feverMax)
             {
                 isFeverTime = true;
             }

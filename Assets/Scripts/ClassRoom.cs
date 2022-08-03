@@ -7,7 +7,6 @@ using TMPro;
 public class ClassRoom : MonoBehaviour
 {
     public ClassData classData;
-    public bool isCalling;
     [SerializeField] private GameObject mapLight;
     private void OnEnable()
     {
@@ -24,7 +23,6 @@ public class ClassRoom : MonoBehaviour
             mapLight.SetActive(false);
             sellBtn.gameObject.SetActive(false);
             buyBtn.gameObject.SetActive(true);
-            classData.currentCost = classData.buyCost;
         }
     }
     private bool isBought;
@@ -54,7 +52,6 @@ public class ClassRoom : MonoBehaviour
         if (isBought == true)
         {
             classData.currentCost += classData.timePerSecondProduct;
-            isCalling = true;
         }
     }
     [Header("TextMeshPro")]
@@ -88,20 +85,16 @@ public class ClassRoom : MonoBehaviour
             if (GameManager.Instance.Effort >= classData.buyCost)
             {
                 IsBought = true;
+                classData.currentCost = classData.buyCost;
                 GameManager.Instance.Effort -= classData.buyCost;
-                
             }
         });
         sellBtn.onClick.AddListener(() =>
         {
             SoundManager.Instance.PlaySound(SoundType.Button);
             IsBought = false;
-            if (isCalling == true)
-            {
-                CancelInvoke(nameof(TimePerProducting));
-            }
             GameManager.Instance.Effort += classData.currentCost;
-            classData.currentCost = classData.buyCost;
+            classData.currentCost = 0;
         });
     }
     private void Update()
