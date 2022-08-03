@@ -35,7 +35,7 @@ public class StudentPresident : MonoBehaviour
     [SerializeField]
     private int increment;
 
-    private const float MULTIPLE = 1.05f;
+    private const float MULTIPLE = 1.6f;
 
     [SerializeField]
     private int level = 1;
@@ -47,6 +47,8 @@ public class StudentPresident : MonoBehaviour
             level = value;
         }
     }
+
+    [SerializeField]
     private ulong cost;
     public ulong Cost
     {
@@ -72,8 +74,8 @@ public class StudentPresident : MonoBehaviour
         {
             GameManager.Instance.Effort -= cost;
             print("´­¸²");
-            level += 1;
             GameManager.Instance.ClickPerEffortProduct += (ulong)(Level * 0.9);
+            level += 1;
         }
     }
 
@@ -93,7 +95,7 @@ public class StudentPresident : MonoBehaviour
         {
             Mathf.Clamp(GameManager.Instance.Effort, 0, ULONGMAX);
         }
-        cost = (ulong)(increment * (int)(level * MULTIPLE));
+        cost = (ulong)(increment * Mathf.RoundToInt(level * MULTIPLE));
         Texts();
     }
     private void Texts()

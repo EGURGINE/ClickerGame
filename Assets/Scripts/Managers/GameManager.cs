@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float fever;//피버 게이지 값
     [SerializeField]
-    private const float feverMax = 250;
+    private const float feverMax = 400;
     public float Fever
     {
         get
@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
     {
         if (isFeverTime == true)
         {
-            Fever -= Time.deltaTime * 5f;
+            Fever -= Time.deltaTime * 30f;
             feverText.gameObject.SetActive(true);
         }
         else
