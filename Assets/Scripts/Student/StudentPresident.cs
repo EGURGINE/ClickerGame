@@ -35,6 +35,7 @@ public class StudentPresident : MonoBehaviour
     [SerializeField]
     private int increment;
 
+    
     private const float MULTIPLE = 1.6f;
 
     [SerializeField]
@@ -95,7 +96,7 @@ public class StudentPresident : MonoBehaviour
         {
             Mathf.Clamp(GameManager.Instance.Effort, 0, ULONGMAX);
         }
-        cost = (ulong)(increment * Mathf.RoundToInt(level * MULTIPLE));
+        cost = (ulong)(increment * level * MULTIPLE * (level/2));
         Texts();
     }
     private void Texts()

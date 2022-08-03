@@ -14026,6 +14026,7 @@ MonoBehaviour:
   upGradeBtn: {fileID: 1074945424}
   increment: 150
   level: 1
+  cost: 0
 --- !u!224 &728623106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33663,7 +33664,7 @@ MonoBehaviour:
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
-  m_InputActionsPerSecond: 50
+  m_InputActionsPerSecond: 20
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
 --- !u!114 &1926151935
