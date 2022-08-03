@@ -3,42 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public enum EButtonType
-{
-    Student,
-    StudentPresident
-}
-public class ButtonFastInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class PresidentButtonFastInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool isPressing;
     public const float MAXPERCLICKSECOND = 1f;
-    private const float UPGRADECLICKTIME = 0.01f;
+    private const float UPGRADECLICKTIME = 0.1f;
 
     private float clickSecond;
-    private EButtonType buttonType;
-    private Student student;
     private StudentPresident presidentstu;
+
+    private GameManager gm;
+
+    private void Awake()
+    {
+        gm = GameManager.Instance;
+    }
     private void Start()
     {
-        if (student != null)
-        {
-            buttonType = EButtonType.Student;
-        }
-        else if (presidentstu != null)
-        {
-            buttonType = EButtonType.StudentPresident;
-        }
+        presidentstu = GetComponent<StudentPresident>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if(isPressing == true)
+        if (isPressing == true)
         {
             WaitFastClick();
         }
-        else if(isPressing == false)
+        else if (isPressing == false)
         {
             StopCoroutine(CFastUpGrade());
+            clickSecond = 0;
         }
     }
 
@@ -50,13 +44,27 @@ public class ButtonFastInput : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         clickSecond += Time.deltaTime;
         if (clickSecond >= MAXPERCLICKSECOND)
         {
-
+            StartCoroutine(CFastUpGrade());
         }
     }
     private IEnumerator CFastUpGrade()
     {
         yield return new WaitForSeconds(UPGRADECLICKTIME);
+        FastClick();
     }
+    private void FastClick()
+    {
+        if (gm.Effort >= presidentstu.Cost)
+        {
+            gm.Effort -= presidentstu.Cost;
+        }
+        else
+        {
+            Debug.Log("µ∑æ¯¿Ã ¿”∏∂");
+        }
+
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         isPressing = true;
