@@ -96,7 +96,7 @@ public class StudentPresident : MonoBehaviour
         {
             Mathf.Clamp(GameManager.Instance.Effort, 0, ULONGMAX);
         }
-        cost = (ulong)(increment * level * MULTIPLE * (level/2));
+        cost = (ulong)(increment * level * level * MULTIPLE);
         Texts();
     }
     private void Texts()

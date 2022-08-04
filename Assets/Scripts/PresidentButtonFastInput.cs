@@ -5,11 +5,12 @@ using UnityEngine.EventSystems;
 
 public class PresidentButtonFastInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public bool isPressing;
-    public const float MAXPERCLICKSECOND = 1f;
-    private const float UPGRADECLICKTIME = 0.1f;
+    public bool isPressing;//누르고 있냐
+    public const float WAITCLICKSECOND = 1f;//버튼 누르고 있어야 되는 시간
+    private const float UPGRADECLICKTIME = 0.1f;//얼마 마다 눌릴거냐
 
     private float clickSecond;
+    [SerializeField]
     private StudentPresident presidentstu;
 
     private GameManager gm;
@@ -20,7 +21,7 @@ public class PresidentButtonFastInput : MonoBehaviour, IPointerDownHandler, IPoi
     }
     private void Start()
     {
-        presidentstu = GetComponent<StudentPresident>();
+        
     }
 
     private void FixedUpdate()
@@ -42,7 +43,7 @@ public class PresidentButtonFastInput : MonoBehaviour, IPointerDownHandler, IPoi
     private void WaitFastClick()
     {
         clickSecond += Time.deltaTime;
-        if (clickSecond >= MAXPERCLICKSECOND)
+        if (clickSecond >= WAITCLICKSECOND)
         {
             StartCoroutine(CFastUpGrade());
         }
@@ -57,12 +58,12 @@ public class PresidentButtonFastInput : MonoBehaviour, IPointerDownHandler, IPoi
         if (gm.Effort >= presidentstu.Cost)
         {
             gm.Effort -= presidentstu.Cost;
+            presidentstu.Level += 1;
         }
         else
         {
             Debug.Log("돈없이 임마");
         }
-
     }
 
     public void OnPointerDown(PointerEventData eventData)

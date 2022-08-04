@@ -18646,10 +18646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPressing: 0
-  clickSecond: 0
-  student: {fileID: 0}
-  presidentstu: {fileID: 0}
-  gm: {fileID: 0}
+  presidentstu: {fileID: 728623105}
 --- !u!1 &1078136953
 GameObject:
   m_ObjectHideFlags: 0
@@ -21172,6 +21169,7 @@ GameObject:
   - component: {fileID: 1229540809}
   - component: {fileID: 1229540808}
   - component: {fileID: 1229540807}
+  - component: {fileID: 1229540810}
   m_Layer: 5
   m_Name: UpGradeBtn
   m_TagString: Untagged
@@ -21281,6 +21279,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229540805}
   m_CullTransparentMesh: 1
+--- !u!114 &1229540810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229540805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10e5b680b31f004593ccb3a7bedfa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressing: 0
+  student: {fileID: 294317397}
 --- !u!1 &1244139307
 GameObject:
   m_ObjectHideFlags: 0
@@ -21970,6 +21982,7 @@ GameObject:
   - component: {fileID: 1274915583}
   - component: {fileID: 1274915582}
   - component: {fileID: 1274915581}
+  - component: {fileID: 1274915584}
   m_Layer: 5
   m_Name: UpGradeBtn
   m_TagString: Untagged
@@ -22079,6 +22092,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274915579}
   m_CullTransparentMesh: 1
+--- !u!114 &1274915584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274915579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10e5b680b31f004593ccb3a7bedfa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressing: 0
+  student: {fileID: 517241965}
 --- !u!1 &1276710103
 GameObject:
   m_ObjectHideFlags: 0
@@ -30886,6 +30913,7 @@ GameObject:
   - component: {fileID: 1786157514}
   - component: {fileID: 1786157513}
   - component: {fileID: 1786157512}
+  - component: {fileID: 1786157515}
   m_Layer: 5
   m_Name: UpGradeBtn
   m_TagString: Untagged
@@ -30995,6 +31023,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786157510}
   m_CullTransparentMesh: 1
+--- !u!114 &1786157515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786157510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10e5b680b31f004593ccb3a7bedfa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressing: 0
+  student: {fileID: 1286314299}
 --- !u!1 &1787749589
 GameObject:
   m_ObjectHideFlags: 0
@@ -31519,6 +31561,7 @@ GameObject:
   - component: {fileID: 1835455884}
   - component: {fileID: 1835455883}
   - component: {fileID: 1835455882}
+  - component: {fileID: 1835455885}
   m_Layer: 5
   m_Name: UpGradeBtn
   m_TagString: Untagged
@@ -31628,6 +31671,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835455880}
   m_CullTransparentMesh: 1
+--- !u!114 &1835455885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835455880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10e5b680b31f004593ccb3a7bedfa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressing: 0
+  student: {fileID: 1779088700}
 --- !u!1 &1838628062
 GameObject:
   m_ObjectHideFlags: 0
@@ -34650,6 +34707,7 @@ GameObject:
   - component: {fileID: 1962928587}
   - component: {fileID: 1962928586}
   - component: {fileID: 1962928585}
+  - component: {fileID: 1962928588}
   m_Layer: 5
   m_Name: UpGradeBtn
   m_TagString: Untagged
@@ -34759,6 +34817,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962928583}
   m_CullTransparentMesh: 1
+--- !u!114 &1962928588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962928583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10e5b680b31f004593ccb3a7bedfa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressing: 0
+  student: {fileID: 2052884221}
 --- !u!1 &1963206986
 GameObject:
   m_ObjectHideFlags: 0
