@@ -114,7 +114,6 @@ public class Stock : MonoBehaviour
 
          
         print( type + "스케일 : " + costScale);
-        Time.timeScale = 100;
         #region 버튼
         buyBtn.onClick.AddListener(() =>
         {
