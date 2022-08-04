@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         set
         {
             effort = value;
-            print(effort);
+          //  print(effort);
         }
     }
 
@@ -177,7 +177,6 @@ public class GameManager : MonoBehaviour
         neglectTxt.gameObject.SetActive(true);
         ulong NeglectCompensation = (effortPerSecondProduct * (ulong)(OutTime * 0.2));
         Effort += NeglectCompensation;
-        print("dddddd" + NeglectCompensation);
         neglectTxt.text = $"너가 없던 사이 {NeglectCompensation} 만큼 노력했다...";
         neglectTxt.DOFade(0, 5).OnComplete(()=> neglectTxt.gameObject.SetActive(false));
     }

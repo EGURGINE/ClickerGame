@@ -173,7 +173,7 @@ public class StatusSave
     public int[] studentLevel = new int[5];//학생 레벨
     public bool[] classBoolean = new bool[5];//교실을 삿냐
     public ulong[] classCurCost = new ulong[5];//현재 교실 가격
-    public float[,] dotYPos = new float[5, 5];//주식 Y좌표
+    public int[,] dotYPos = new int[5, 5];//주식 Y좌표
     public float[] cycleTime = new float[5];//주식 리젠시간
     public int[] stockHave = new int[5];//주식 가지고있는 갯수
     public float quitTime;//나간시간
