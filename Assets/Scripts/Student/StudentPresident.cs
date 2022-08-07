@@ -36,7 +36,7 @@ public class StudentPresident : MonoBehaviour
     private int increment;
 
     
-    private const float MULTIPLE = 1.6f;
+    private const float MULTIPLE = 1.5f;
 
     [SerializeField]
     private int level = 1;
