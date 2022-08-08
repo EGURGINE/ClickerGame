@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isBgm = true;
     [HideInInspector] public bool isSfx = true;
     [HideInInspector] public bool isEffect = true;
+    [SerializeField] private ParticleSystem pc;
     #endregion
 
     [SerializeField]
@@ -189,6 +190,15 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         TextUpDate();
+        TouchEffect();
+    }
+    private void TouchEffect()
+    {
+        if (isEffect && Input.GetMouseButton(0))
+        {
+            Vector2 pos = Input.mousePosition;
+            ParticlePool.Instance.Pop(pos);
+        }
     }
     private void TextUpDate()
     {
