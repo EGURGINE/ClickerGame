@@ -47,9 +47,17 @@ public class ParticlePool : MonoBehaviour
     }
     public void Pop(Vector2 _pos)
     {   
-        var pc = pcStack.Pop();
-        pc.transform.parent = null;
-        pc.gameObject.SetActive(true);
-        pc.transform.position = _pos;
+        if(pcStack.Count <= 0)
+        {
+            var kingA = Instantiate(pc);
+            kingA.transform.parent = pcPoolObj.transform;
+            kingA.gameObject.SetActive(false);
+            pcStack.Push(kingA);
+        }
+        GameObject pcPop = pcStack.Pop().gameObject;
+        pcPop.transform.parent = null;
+        pcPop.gameObject.SetActive(true);
+        pcPop.transform.position = _pos;
+        pcPop.GetComponent<ThouchPc>().Play();
     }
 }

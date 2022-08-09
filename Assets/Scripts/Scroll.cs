@@ -15,7 +15,6 @@ public class Scroll : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         mousePos = Input.mousePosition;
-        print(Input.mousePosition);
     }
     private void Check()
     {

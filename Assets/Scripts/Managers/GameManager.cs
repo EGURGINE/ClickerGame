@@ -101,7 +101,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isBgm = true;
     [HideInInspector] public bool isSfx = true;
     [HideInInspector] public bool isEffect = true;
-    [SerializeField] private ParticleSystem pc;
     #endregion
 
     [SerializeField]
@@ -194,10 +193,9 @@ public class GameManager : MonoBehaviour
     }
     private void TouchEffect()
     {
-        if (isEffect && Input.GetMouseButton(0))
+        if (isEffect && Input.GetMouseButtonDown(0))
         {
-            Vector2 pos = Input.mousePosition;
-            ParticlePool.Instance.Pop(pos);
+            ParticlePool.Instance.Pop(Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0,0,10)));
         }
     }
     private void TextUpDate()
