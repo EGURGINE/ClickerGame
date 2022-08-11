@@ -156,13 +156,16 @@ public class StatusManager : Singleton<StatusManager>
 
 
     }
-    private void OnApplicationQuit()
-    {
-        SetDataToJson();
-    }
+    //private void OnApplicationQuit()
+    //{
+    //    SetDataToJson();
+    //}
     private void OnApplicationPause(bool pause)
     {
-        //SetDataToJson();
+        if (pause == true)
+        {
+            SetDataToJson();
+        }
     }
 }
 [Serializable]
