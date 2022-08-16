@@ -57,6 +57,7 @@ public class StatusManager : Singleton<StatusManager>
     {
         gameManager.Effort = statDatas.effort;
         president.Level = statDatas.studentPresidentLevel;
+        gameManager.EffortPerSecondProduct = statDatas.perSecondPeoduct;
         for (int i = 0; i < studentdata.Length; i++)
         {
             print(i);
@@ -89,6 +90,7 @@ public class StatusManager : Singleton<StatusManager>
     {
         statDatas.effort = gameManager.Effort;
         statDatas.studentPresidentLevel = president.Level;
+        statDatas.perSecondPeoduct = gameManager.EffortPerSecondProduct;
         for (int i = 0; i < studentdata.Length; i++)
         {
             print(statDatas.studentLevel[i]);
@@ -173,6 +175,7 @@ public class StatusSave
 {
     public ulong effort;//현재 가지고 있는 돈
     public int studentPresidentLevel;//학생회장 레벨
+    public ulong perSecondPeoduct;//클릭당 돈
     public int[] studentLevel = new int[5];//학생 레벨
     public bool[] classBoolean = new bool[5];//교실을 삿냐
     public ulong[] classCurCost = new ulong[5];//현재 교실 가격

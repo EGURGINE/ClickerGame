@@ -75,7 +75,7 @@ public class StudentPresident : MonoBehaviour
         {
             GameManager.Instance.Effort -= cost;
             print("´­¸²");
-            GameManager.Instance.ClickPerEffortProduct += (ulong)(Level * 1.1);
+            GameManager.Instance.ClickPerEffortProduct += (ulong)(Level * MULTIPLE);
             level += 1;
         }
     }
