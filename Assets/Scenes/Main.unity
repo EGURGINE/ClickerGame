@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6570,7 +6570,7 @@ RectTransform:
   - {fileID: 1877887702}
   - {fileID: 154415061}
   m_Father: {fileID: 1934627275}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6931,7 +6931,6 @@ RectTransform:
   m_Children:
   - {fileID: 789564649}
   - {fileID: 1934627275}
-  - {fileID: 695872308}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12710,7 +12709,7 @@ RectTransform:
   m_Children:
   - {fileID: 277723137}
   m_Father: {fileID: 1934627275}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -12744,16 +12743,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695872307}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 407489220}
-  m_RootOrder: 2
+  m_Father: {fileID: 1934627275}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 468.71}
+  m_AnchoredPosition: {x: 0, y: 268.71002}
   m_SizeDelta: {x: 1440, y: 1620}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695872309
@@ -13670,7 +13669,7 @@ RectTransform:
   - {fileID: 1410874861}
   - {fileID: 1869189045}
   m_Father: {fileID: 1934627275}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17118,7 +17117,7 @@ RectTransform:
   m_Children:
   - {fileID: 1844160286}
   m_Father: {fileID: 1934627275}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17189,7 +17188,7 @@ RectTransform:
   - {fileID: 951884158}
   - {fileID: 805166714}
   m_Father: {fileID: 1934627275}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20430,7 +20429,7 @@ RectTransform:
   m_Children:
   - {fileID: 407899008}
   m_Father: {fileID: 1934627275}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20793,7 +20792,7 @@ RectTransform:
   - {fileID: 2052884220}
   - {fileID: 1912055776}
   m_Father: {fileID: 1934627275}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22014,6 +22013,7 @@ MonoBehaviour:
   statDatas:
     effort: 0
     studentPresidentLevel: 0
+    perSecondPeoduct: 0
     studentLevel: 0000000000000000000000000000000000000000
     classBoolean: 0000000000
     classCurCost: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -23130,7 +23130,7 @@ RectTransform:
   - {fileID: 1211339316}
   - {fileID: 32304566}
   m_Father: {fileID: 1934627275}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25225,7 +25225,7 @@ RectTransform:
   - {fileID: 1659693579}
   - {fileID: 753816319}
   m_Father: {fileID: 1934627275}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33719,6 +33719,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 695872308}
   - {fileID: 693363985}
   - {fileID: 962639431}
   - {fileID: 1208037601}
